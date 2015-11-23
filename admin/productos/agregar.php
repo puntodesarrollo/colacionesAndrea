@@ -1,3 +1,16 @@
+<?php 
+$sesion = include $_SERVER['DOCUMENT_ROOT']."/admin/verificarSesion.php";
+
+		if($sesion===false){
+			header("location:/admin/login");
+			exit;
+		}
+
+		include $_SERVER['DOCUMENT_ROOT']."/admin/header.php";
+    	include $_SERVER['DOCUMENT_ROOT']."/admin/conexion.php";
+    ?>	
+    </br>
+    </br>
 	<div class="page-header">
 		<h2 class="text-center">Agregar Colacion <small></small></h2>
 	</div>
@@ -55,7 +68,7 @@
 							<div class="col-sm-12">
 								<div class="form-group">
 									<label for="nombre" class="control-label">Imagenes</label>
-									<input type="file" class="form-control" name="imagen[]" id="imagen"
+									<input type="file" class="filestyle" name="imagen[]" id="imagen" data-input="false" data-buttonText="Elegir Imagenes"
 									multiple accept="image/*">
 								</div>
 							</div>
@@ -70,4 +83,8 @@
 					</form>
 			</div>
 		</div>		
-	</div>	
+	</div>
+<?php
+	mysqli_close($con);
+	include $_SERVER['DOCUMENT_ROOT']."/admin/footer.php";
+?>			

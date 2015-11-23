@@ -1,4 +1,15 @@
-	<?php
+<?php
+		$sesion = include $_SERVER['DOCUMENT_ROOT']."/admin/verificarSesion.php";
+
+		if($sesion===false){
+			header("location:/admin/login");
+			exit;
+		}
+
+		include $_SERVER['DOCUMENT_ROOT']."/admin/header.php";
+    	include $_SERVER['DOCUMENT_ROOT']."/admin/conexion.php";		
+
+
 		$id_producto= $_GET["t"];		
 
 		include $_SERVER['DOCUMENT_ROOT']."/admin/conexion.php";
@@ -33,6 +44,8 @@
 			//$fila["dia"];
 		}			
 	?>
+	</br>
+	</br>
 	<div class="page-header">
 		<h2 class="text-center">Editar <?php echo $nombre; ?> <small></small></h2>
 	</div>
@@ -148,3 +161,7 @@
 			</div>
 		</div>		
 	</div>	
+<?php
+	mysqli_close($con);
+	include $_SERVER['DOCUMENT_ROOT']."/admin/footer.php";
+?>	

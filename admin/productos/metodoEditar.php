@@ -19,6 +19,6 @@
     	$insert = $con->query("INSERT INTO dias_productos (id_producto,dia) VALUES('$id','$dia')");    	   
     	
     }
-	
+	mysqli_close($con);
 	header("location:/admin/productos");
 ?>

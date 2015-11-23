@@ -32,7 +32,7 @@
 
 
 
-
+	mysqli_close($con);
     header("location:/admin/productos");
 	
 ?>

@@ -1,6 +1,16 @@
-    <?php 
+<?php 
+$sesion = include $_SERVER['DOCUMENT_ROOT']."/admin/verificarSesion.php";
+
+		if($sesion===false){
+			header("location:/admin/login");
+			exit;
+		}
+
+		include $_SERVER['DOCUMENT_ROOT']."/admin/header.php";
     	include $_SERVER['DOCUMENT_ROOT']."/admin/conexion.php";
     ?>
+    <br>
+    <br>
     <div class="page-header">
         <h2 class="text-center">Productos del Sistema</h2>
     </div>
@@ -48,7 +58,7 @@
 							<td>'.$fila["cantidad"].'</td>	
 							<td>'.$dias.'</td>
 							<td>'.$mostrar.'</td>													
-							<td><a href="imagen/index.php?p='.$fila["nombre"].'"><span class="glyphicon glyphicon-picture text-primary"></span></a></td>
+							<td><a href="editarImagenes.php?p='.$fila["id"].'"><span class="glyphicon glyphicon-picture text-primary"></span></a></td>
 							<td><a href="editar.php?t='.$fila["id"].'"><span class="glyphicon glyphicon-edit text-primary"></span></a></td>
 							<td><a href="#" data-toggle="modal" data-target="#myModal" onclick="funcionDelete(\''.$nombreCod.'\')">
 									<span class="glyphicon glyphicon-remove-circle text-danger"></span>
@@ -63,7 +73,10 @@
 				<a href="agregar.php" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-plus text-primary"></span>&nbsp;Nueva Colacion</a>
 			</div>
 		</div>
-
+<?php
+	mysqli_close($con);
+	include $_SERVER['DOCUMENT_ROOT']."/admin/footer.php";
+?>		
 <?php 
 	function obtenerDias($id_producto,$con){
 
