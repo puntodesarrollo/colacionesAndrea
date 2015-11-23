@@ -19,6 +19,7 @@
 				<tr>
 					<th>Título</th>
 					<th>Fecha</th>
+					<th class="col-sm-2">Imagen</th>
 					<th>Editar</th>
 					<th>Eliminar</th>
 				</tr>
@@ -40,6 +41,7 @@
 						echo '<tr>
 								<td>'. $fila["titulo"] .'</td>
 								<td>'. $fila["fecha"] .'</td>
+								<td><img class="img-rounded" alt="sin imagen" src="'. $fila["imagen"] .'" width="100%"></td>
 								<td><a href="editar.php?t='.$ID.'"><span class="glyphicon glyphicon-edit text-primary"></span></a></td>
 								<td><a href="#" data-toggle="modal" data-target="#myModal" onclick="funcionDelete(\''.$ID.'\')">
 										<span class="glyphicon glyphicon-remove-circle text-danger"></span>

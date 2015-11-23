@@ -11,7 +11,7 @@
 	
 	include $_SERVER['DOCUMENT_ROOT']."/admin/conexion.php";					
 	
-	$sql="SELECT nombre FROM creatuplatobase WHERE nombre='$nombre'";
+	$sql="SELECT titulo FROM noticias WHERE titulo='$nombre'";
 	
 	$result = mysqli_query($con,$sql);
 		
@@ -19,7 +19,7 @@
 		$result->data_seek($i);
 		$fila = $result->fetch_assoc();
 		
-		if($fila["nombre"]==$nombre && $nombre!="")
+		if($fila["titulo"]==$nombre && $nombre!="")
 		{
 			$retorno="true";
 		}
