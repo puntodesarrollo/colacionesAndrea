@@ -17,7 +17,7 @@
 	$result = mysqli_query($con,$sql);
 	
 	//Se agregan los datos			
-	$resultado = $con->query("INSERT INTO creatuplatobase(nombre) VALUES('$nombre')");
+	$resultado = $con->query("INSERT INTO creatuplatoacompanamiento(nombre) VALUES('$nombre')");
 
 	mysqli_close($con);
 

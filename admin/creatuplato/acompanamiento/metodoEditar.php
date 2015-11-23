@@ -1,4 +1,4 @@
-<?php	
+<?php
 	$sesion = include $_SERVER['DOCUMENT_ROOT']."/admin/verificarSesion.php";
 
 	if($sesion===false){
@@ -8,19 +8,18 @@
 
 	//Variables album
 	$nombre = $_POST["nombre"];
+	$ID = $_POST["ID"];
 
-	//agregar los datos a la BD
+	//Se hace la conexion:
 	include $_SERVER['DOCUMENT_ROOT']."/admin/conexion.php";
 
-	$sql="SELECT * FROM creatuplatobase";
-
-	$result = mysqli_query($con,$sql);
+	if (!$con->set_charset("utf8")) {
+		printf("Error cargando el conjunto de caracteres utf8: %s\n", $mysqli->error);
+	}
+		
+	//Se actualizan los datos en la BD
+	$resultado = $con->query("UPDATE creatuplatoacompanamiento set nombre='$nombre' WHERE ID='$ID'");
 	
-	//Se agregan los datos			
-	$resultado = $con->query("INSERT INTO creatuplatobase(nombre) VALUES('$nombre')");
-
-	mysqli_close($con);
-
 	//redireccionar a programas
 	header("location:/admin/creatuplato");
 ?>

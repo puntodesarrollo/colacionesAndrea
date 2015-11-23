@@ -44,7 +44,7 @@ $sesion = include $_SERVER['DOCUMENT_ROOT']."/admin/verificarSesion.php";
 			<li><a href="/admin/noticias">Noticias</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-			<li><a href="/admin/usuarios">Usuarios del sistema</a></li>
+			<li><a href="/admin/usuariosSistema">Usuarios Registrados</a></li>
 			<li class="dropdown">
 					<a data-toggle="dropdown" class="dropdown-toggle" href="#">Mi Cuenta<b class="caret"></b></a>
 					<ul role="menu" class="dropdown-menu">

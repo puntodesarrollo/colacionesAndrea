@@ -13,7 +13,7 @@
 		
 		include $_SERVER['DOCUMENT_ROOT']."/admin/conexion.php";
 		
-		$sql="DELETE FROM creatuplatobase WHERE ID='".$ID."'";
+		$sql="DELETE FROM creatuplatoacompanamiento WHERE ID='".$ID."'";
 		$result = mysqli_query($con,$sql);
 		
 		mysqli_close($con);

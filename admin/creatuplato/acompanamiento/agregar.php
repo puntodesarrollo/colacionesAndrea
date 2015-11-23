@@ -13,7 +13,7 @@
 
 	<br>
 	<div class="page-header">
-		<h2 class="text-center">Agregar Base <small>Arma tu Plato</small></h2>
+		<h2 class="text-center">Agregar Acompañamiento <small>Arma tu Plato</small></h2>
 	</div>
 	<br class="hidden-xs">
 	<br class="hidden-xs">
@@ -22,12 +22,12 @@
 			<div class="col-xs-12 col-sm-8 col-sm-offset-2">
 				<form action="subir.php" method="post" enctype="multipart/form-data" class="form-horizontal">
 					<div id="divNombre" class="form-group">
-						<label for="nombre" class="control-label">Nombre de Base</label>
+						<label for="nombre" class="control-label">Nombre de Acompañamiento</label>
 						<input type="text" class="form-control" name="nombre" id="nombre" 
 						maxlength="200" required>
 						<span id="spanInput" class="glyphicon form-control-feedback"></span>
 						<div id="mensajeError" class="alert alert-danger hidden">
-							<strong>Error: </strong> ya existe un producto con ese nombre en el sistema
+							<strong>Error: </strong> ya existe un acompañamiento con ese nombre en el sistema
 						</div>
 					</div>
 					<br />

@@ -11,10 +11,10 @@
 	include $_SERVER['DOCUMENT_ROOT']."/admin/header.php";
 ?>
 	<br>
-    <div class="page-header">
-        <h2 class="text-center">Crea Tu Plato</h2>
-    </div>
+	<br>
+        <h1 class="text-center">Crea Tu Plato</h2>
 	<div class="table-responsive">
+		<h3>Bases:</h3>
 		<table class="table table-hover">
 			<thead>
 				<tr>
@@ -49,7 +49,47 @@
 			</tbody>
 		</table>
 		<div class="modal-footer">
-			<a href="bases/agregar.php" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-plus"></span>&nbsp;Agregar</a>
+			<a href="bases/agregar.php" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>&nbsp;Agregar</a>
+		</div>
+	</div>
+	<hr>
+	<div class="table-responsive">
+		<h3>Acompañamientos:</h3>
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>Descripción de acompañamiento</th>
+					<th>Editar</th>
+					<th>Eliminar</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php
+					include $_SERVER['DOCUMENT_ROOT']."/admin/conexion.php";
+
+					$sql="SELECT * FROM creatuplatoacompanamiento";
+		
+					$result = mysqli_query($con,$sql);
+					
+					for ($i = 0; $i <$result->num_rows; $i++) 
+					{
+						$result->data_seek($i);
+						$fila = $result->fetch_assoc();
+						$ID = $fila["ID"];
+
+						echo '<tr>
+								<td>'. $fila["nombre"] .'</td>
+								<td><a href="acompanamiento/editar.php?t='.$ID.'"><span class="glyphicon glyphicon-edit text-primary"></span></a></td>
+								<td><a href="#" data-toggle="modal" data-target="#myModal" onclick="funcionDeleteAcompanamiento(\''.$ID.'\')">
+										<span class="glyphicon glyphicon-remove-circle text-danger"></span>
+									</a></td>
+							</tr>';
+					}
+				?>				
+			</tbody>
+		</table>
+		<div class="modal-footer">
+			<a href="acompanamiento/agregar.php" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>&nbsp;Agregar</a>
 		</div>
 	</div>
 
@@ -59,7 +99,7 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-					<h4 class="modal-title text-center" id="myModalLabel">¿Eliminar Noticia?</h4>
+					<h4 class="modal-title text-center" id="myModalLabel">¿Eliminar Base?</h4>
 				</div>
 				<div class="modal-body">
 					<h5 class="text-center" id="text-modal"></h5>
@@ -74,11 +114,22 @@
 
 	<script type="text/javascript">
 	function funcionDelete(name) {
+		$("#myModalLabel").html("¿Eliminar Base?");
 		$("#text-modal").html("");
 		var cadena = "bases/eliminar.php?t=name";
 		cadena = cadena.replace("name",name);
 		$("#btn_delete").attr("href", cadena);
-		$("#text-modal").append("¿Está seguro de que desea eliminar el producto <strong>" + name + "</strong>?");
+		$("#text-modal").append("¿Está seguro de que desea eliminar la base?");
+	}
+
+	function funcionDeleteAcompanamiento(name) {
+		$("#myModalLabel").html("¿Eliminar Acompañamiento?");
+		
+		$("#text-modal").html("");
+		var cadena = "acompanamiento/eliminar.php?t=name";
+		cadena = cadena.replace("name",name);
+		$("#btn_delete").attr("href", cadena);
+		$("#text-modal").append("¿Está seguro de que desea eliminar el acompañamiento?");
 	}
 	</script>
 

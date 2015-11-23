@@ -15,7 +15,7 @@
 	//obtener los datos de la bd
 	include $_SERVER['DOCUMENT_ROOT']."/admin/conexion.php";
 	
-	$sql="SELECT * FROM creatuplatobase WHERE ID='$ID'";
+	$sql="SELECT * FROM creatuplatoacompanamiento WHERE ID='$ID'";
 
 	$result = mysqli_query($con,$sql);
 	

@@ -6,5 +6,7 @@
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/bootstrap.filestyle/1.1.0/js/bootstrap-filestyle.min.js"> </script>
 
+<script type="text/javascript" src="/admin/Scripts/bootstrap-wysiwyg.js"> </script>
+
 </body>
 </html>
