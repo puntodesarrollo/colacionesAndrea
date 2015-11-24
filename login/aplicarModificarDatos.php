@@ -31,5 +31,5 @@
 	mysqli_close($con);	
 
 	//redireccionar a programas
-	header("location:index.html");
+	header("location:/login");
 ?>

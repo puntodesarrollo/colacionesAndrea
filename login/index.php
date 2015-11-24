@@ -33,7 +33,7 @@
 
     <div class="clearfix"></div>
 <br>
-    <div class="col-sm-4 col-sm-offset-4 text-center">
+    <div id="registrar" class="col-sm-4 col-sm-offset-4 text-center">
       <a href="<?php echo $loginUrl; ?>">Log in with Facebook!</a>
       <div class="g-signin2" id="signin" data-onsuccess="onSignIn" data-theme="dark"></div>
     </div>
@@ -47,10 +47,31 @@
 
         $("#info").addClass("hidden");
         $("#signout").addClass("hidden");
-        $("#signin").removeClass("hidden");
+        $("#registrar").removeClass("hidden");
       }
     </script>
     <script>
+
+      $( document ).ready(function() {
+          console.log( "ready!" );
+          $.get( "obtenerUsuario.php")
+            .done(function( data ) {
+              console.log(data);
+              datos = JSON.parse(data);
+              console.log("Nombre:" + datos.nombre);
+              $("#info").removeClass("hidden");
+              $("#signout").removeClass("hidden");
+              $("#registrar").addClass("hidden");
+
+              $("#nombre").html(datos.nombre);
+              $("#correo").html(datos.correo);
+              $("#direccion").html(datos.direccion);
+              $("#telefono").html(datos.telefono);
+              $("#imagen").attr("src","");
+              $("#imagen").attr("src",profile.getImageUrl());
+          });
+      });
+
       function onSignIn(googleUser) {
         // Useful data for your client-side scripts:
         var profile = googleUser.getBasicProfile();
@@ -67,22 +88,10 @@
           .done(function( data ) {
             console.log(data);
 
-            $.get( "obtenerUsuario.php")
-              .done(function( data ) {
-                console.log(data);
-                datos = JSON.parse(data);
-                console.log("Nombre:" + datos.nombre);
-                $("#info").removeClass("hidden");
-                $("#signout").removeClass("hidden");
-                $("#signin").addClass("hidden");
-
-                $("#nombre").html(datos.nombre);
-                $("#correo").html(datos.correo);
-                $("#direccion").html(datos.direccion);
-                $("#telefono").html(datos.telefono);
-                $("#imagen").attr("src","");
-                $("#imagen").attr("src",profile.getImageUrl());
-              });
+            if(data=="true")
+            {
+              location.reload();
+            }
           });
       }
     </script>
