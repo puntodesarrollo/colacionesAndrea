@@ -49,16 +49,15 @@
 
 					include $_SERVER['DOCUMENT_ROOT']."/login/obtenerDatosProducto.php";
 
-					if($cantidadComprar>$cantidadDisponible)
+					if($cantidadComprar>$cantidadDisponible || $cantidadComprar<=0)
 					{
 						$cantidadComprar=$cantidadDisponible;
-					}
-					if($cantidadDisponible<=0 || $cantidadComprar<=0)
-					{
 						include $_SERVER['DOCUMENT_ROOT']."/login/actualizarDatosCompra.php";
 					}
 
-					echo '<tr>
+					if($cantidadComprar>0)
+					{
+						echo '<tr>
 							<td>'. $nombreProducto .'</td>
 							<td>'. $cantidadComprar .'</td>
 							<td>'. $cantidadDisponible .'</td>
@@ -68,8 +67,8 @@
 							<td><a href="disminuir.php?ID='. $ID .'" class="btn btn-primary">Disminuir</a></td>
 							<td><a href="eliminar.php?ID='. $ID .'" class="btn btn-primary">Eliminar</a></td>
 						</tr>';
-
-					$totalCompra+=($precioProducto * $cantidadComprar);
+					}			
+					$totalCompra+=($precioProducto * $cantidadComprar);		
 				}
 
 				mysqli_close($conexion);
