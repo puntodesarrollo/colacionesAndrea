@@ -9,22 +9,22 @@
 	if($IDproducto!=null){
 
 		//obtener los datos de la bd
-		include $_SERVER['DOCUMENT_ROOT']."/admin/conexion.php";
+		$conex = include $_SERVER['DOCUMENT_ROOT']."/admin/crearConexion.php";
 		
-		$sql="SELECT * FROM productos WHERE ID='$IDproducto'";
+		$sentenciaSql="SELECT * FROM productos WHERE ID='$IDproducto'";
 
-		$result = mysqli_query($con,$sql);
+		$unResult = mysqli_query($conex,$sentenciaSql);
 		
-		if($result===false || $result->num_rows===0)
+		if($unResult===false || $unResult->num_rows===0)
 		{
 			exit;
 		}
 		
-		for ($i = 0; $i <$result->num_rows; $i++) {
-			$result->data_seek($i);
-			$fila = $result->fetch_assoc();
+		for ($z = 0; $z <$unResult->num_rows; $z++) {
+			$unResult->data_seek($z);
+			$estaFila = $unResult->fetch_assoc();
 
-			$Producto = $fila["nombre"];
+			$Producto = $estaFila["nombre"];
 		}
 		
 		mysqli_close($con);
