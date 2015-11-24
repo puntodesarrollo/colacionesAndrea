@@ -30,6 +30,10 @@
         <a href="datosFacturacion.php" class="btn btn btn-primary">Agregar/Modificar mis Datos de Facturación</a>
       </div>
       <div class="modal-footer">
+        <a href="carro.php" class="btn btn btn-primary">Mi Carro de Compras</a>
+        <a href="misCompras.php" class="btn btn btn-primary">Ver Compras Realizadas</a>
+        </div>
+        <div class="modal-footer">
         <a href="#" id="signout" class="hidden btn btn btn-danger" onclick="signOut();">Cerrar Sesi&oacute;n</a>
       </div>
     </div>

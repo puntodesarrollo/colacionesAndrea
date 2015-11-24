@@ -19,17 +19,15 @@
 				<tr>
 					<th>Usuario</th>
 					<th>Fecha</th>
-					<th>Total Ventas</th>
+					<th>Total Venta</th>
 					<th>Ver Detalle</th>
-					<th>Confirmar</th>
-					<th>Eliminar</th>
 				</tr>
 			</thead>
 			<tbody>
 				<?php
 					include $_SERVER['DOCUMENT_ROOT']."/admin/conexion.php";
 
-					$sql="SELECT ID FROM pedidos WHERE entregado='true'";
+					$sql="SELECT ID, IDusuario FROM pedidos WHERE entregado='true'";
 		
 					$result = mysqli_query($con,$sql);
 					
@@ -43,16 +41,10 @@
 						include $_SERVER['DOCUMENT_ROOT']."/admin/obtenerDatosVenta.php";
 
 						echo '<tr>
-								<td>'. $Usuario .'</td>
+								<td><a href="/admin/usuariosSistema/datosUsuario.php?t='.$IDusuario.'" target="_blank">'. $Usuario .'</a></td>
 								<td>'. $Fecha .'</td>
 								<td>'. $Total .'</td>
 								<td><a href="detallePedido.php?t='.$IDpedido.'"><span class="glyphicon glyphicon-list text-primary"></span></a></td>
-								<td><a href="#" data-toggle="modal" data-target="#myModal" onclick="funcionConfirmar(\''.$IDpedido.'\')">
-										<span class="glyphicon glyphicon-ok text-success"></span>
-									</a></td>
-								<td><a href="#" data-toggle="modal" data-target="#myModal" onclick="funcionDelete(\''.$IDpedido.'\')">
-										<span class="glyphicon glyphicon-remove-circle text-danger"></span>
-									</a></td>
 							</tr>';
 					}
 				?>				

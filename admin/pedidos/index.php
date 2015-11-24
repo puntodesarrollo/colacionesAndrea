@@ -29,7 +29,7 @@
 				<?php
 					include $_SERVER['DOCUMENT_ROOT']."/admin/conexion.php";
 
-					$sql="SELECT ID FROM pedidos WHERE entregado='false'";
+					$sql="SELECT ID, IDusuario FROM pedidos WHERE entregado='false'";
 		
 					$result = mysqli_query($con,$sql);
 					
@@ -39,11 +39,12 @@
 						$fila = $result->fetch_assoc();
 
 						$IDpedido = $fila["ID"];
+						$IDusuario = $fila["IDusuario"];
 
 						include $_SERVER['DOCUMENT_ROOT']."/admin/obtenerDatosVenta.php";
 
 						echo '<tr>
-								<td>'. $Usuario .'</td>
+								<td><a href="/admin/usuariosSistema/datosUsuario.php?t='.$IDusuario.'" target="_blank">'. $Usuario .'</a></td>
 								<td>'. $Fecha .'</td>
 								<td>'. $Total .'</td>
 								<td><a href="detallePedido.php?t='.$IDpedido.'"><span class="glyphicon glyphicon-list text-primary"></span></a></td>

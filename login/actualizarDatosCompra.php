@@ -10,8 +10,15 @@ $cantidadComprar, que representa la nueva cantidad a colocar en la fila a modifi
 
 	$conexionActualizar = include $_SERVER['DOCUMENT_ROOT']."/admin/crearConexion.php";
 
-	//Se obtienen los datos básicos del producto:
-	$sentenciaActualizar="UPDATE compras SET cantidad=$cantidadComprar WHERE ID='$ID'";
+
+	if($cantidadComprar>0)
+	{
+		$sentenciaActualizar="UPDATE compras SET cantidad=$cantidadComprar WHERE ID='$ID'";
+	}
+	else
+	{
+		$sentenciaActualizar="DELETE FROM compras WHERE ID='$ID'";
+	}
 
 	mysqli_query($conexionActualizar,$sentenciaActualizar);
 

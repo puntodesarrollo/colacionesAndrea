@@ -68,6 +68,6 @@
 			</tbody>
 		</table>
 		<div class="modal-footer">
-			<a href="agregar.php" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>&nbsp;Agregar</a>
+			<a href="/login" class="btn btn-primary"><span class="glyphicon glyphicon-chevron-left"></span>&nbsp;Volver</a>
 		</div>
 	</div>

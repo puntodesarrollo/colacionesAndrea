@@ -40,6 +40,10 @@
 		mysqli_query($conInsert,$sqlInsert);
 	}
 
+	$sql="DELETE FROM compras WHERE IDusuario='$IDusuario'";
+
+	$resultado = mysqli_query($conexion,$sql);
+
 	mysqli_close($conexion);
 	mysqli_close($conInsert);
 

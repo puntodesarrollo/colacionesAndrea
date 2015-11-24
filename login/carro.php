@@ -21,6 +21,9 @@
 				<th>Cantidad Disponible</th>
 				<th>Precio</th>
 				<th>Total</th>
+				<th>Aumentar</th>
+				<th>Disminuir</th>
+				<th>Eliminar</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -49,6 +52,9 @@
 					if($cantidadComprar>$cantidadDisponible)
 					{
 						$cantidadComprar=$cantidadDisponible;
+					}
+					if($cantidadDisponible<=0 || $cantidadComprar<=0)
+					{
 						include $_SERVER['DOCUMENT_ROOT']."/login/actualizarDatosCompra.php";
 					}
 
@@ -58,6 +64,9 @@
 							<td>'. $cantidadDisponible .'</td>
 							<td>'. $precioProducto .'</td>
 							<td>'. ($precioProducto * $cantidadComprar) .'</td>
+							<td><a href="aumentar.php?ID='. $ID .'" class="btn btn-primary">Aumentar</a></td>
+							<td><a href="disminuir.php?ID='. $ID .'" class="btn btn-primary">Disminuir</a></td>
+							<td><a href="eliminar.php?ID='. $ID .'" class="btn btn-primary">Eliminar</a></td>
 						</tr>';
 
 					$totalCompra+=($precioProducto * $cantidadComprar);
@@ -68,7 +77,19 @@
 		</tbody>
 	</table>
 	<h3>Total Compra: <?php echo $totalCompra; ?></h3>
-	<div class="modal-footer">
-		<a href="realizarCompra.php" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>&nbsp;Realizar Compra</a>
-	</div>
+	<?php 
+		if($totalCompra>0)
+		{
+			echo '<div class="modal-footer">
+					<a href="/login" class="btn btn-primary"><span class="glyphicon glyphicon-chevron-left"></span>&nbsp;Volver</a>
+					<a href="realizarCompra.php" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>&nbsp;Realizar Compra</a>
+				</div>';
+		}
+		else
+		{
+			echo '<div class="modal-footer">
+					<a href="/login" class="btn btn-primary"><span class="glyphicon glyphicon-chevron-left"></span>&nbsp;Volver</a>
+				</div>';
+		}
+  	?>
 </div>
