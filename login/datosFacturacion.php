@@ -4,28 +4,25 @@
 	$ID=$_SESSION['ID'];
 	
 	//Se hace la conexion:
-	$con = new mysqli("localhost", "cpu16669", "HIW7crQ5", "cpu16669_colaciones");
-	//Se avisa si falla la conexion:
-	if ($con->connect_errno) {
-		echo "Falló la conexión con MySQL: (" . $con->connect_errno . ") " . $con->connect_error;
-	}
-	
-	if (!$con->set_charset("utf8")) {
-		printf("Error cargando el conjunto de caracteres utf8: %s\n", $con->error);
-	}							
+	include $_SERVER['DOCUMENT_ROOT']."/admin/conexion.php";
 	
 	$sql="SELECT * FROM datosfacturacion WHERE IDusuario='$ID'";
-
+						
 	$result = mysqli_query($con,$sql);
-		
-	if(!($result===false) && $result->num_rows>0){
-		for ($i = 0; $i <$result->num_rows; $i++) {
-			$result->data_seek($i);
-			$fila = $result->fetch_assoc();
-			$arr = array('id_facebook' => $fila["id_facebook"], 'id_google' => $fila["id_google"], 'nombre' => $fila["nombre"], 'direccion' => $fila["direccion"], 'telefono' => $fila["telefono"], 'es_empresa' =>$fila["es_empresa"], 'correo' => $fila["correo"]);
-		}
-		mysqli_close($con);
+	
+	for ($i = 0; $i <$result->num_rows; $i++) {
+		$result->data_seek($i);
+	    $fila = $result->fetch_assoc();															
+
+    	$razonsocial=$fila["razonsocial"];
+		$rut = $fila["rut"];
+		$domicilio = $fila["domicilio"];
+		$comuna = $fila["comuna"];
+		$giro = $fila["giro"];
+		$telefono = $fila["telefono"];
 	}
+	
+	mysqli_close($con);
 
 ?>
 
@@ -42,37 +39,52 @@
   			<div class="page-header">
   				<h3>Mis datos:</h1>
   			</div>
-  			<form class="form-horizontal" role="form" action="aplicarModificarDatos.php" method="post">
+  			<form class="form-horizontal" role="form" action="guardarDatosFacturacion.php" method="post">
 			  <div class="form-group">
-			    <label for="nombre" class="col-lg-2 control-label">Nombre</label>
+			    <label for="nombre" class="col-lg-2 control-label">Nombre o Raz&oacute;n Social</label>
 			    <div class="col-lg-10">
 			      <input type="text" class="form-control" id="nombre" name="nombre"
-			             placeholder="Nombre Completo" value="<?php echo $arr["nombre"]; ?>" required>
+			             placeholder="Colaciones a Domicilio Andrea" value="<?php echo $razonsocial; ?>" length="200" required>
 			    </div>
 			  </div>
 			  <div class="form-group">
-			    <label for="nombre" class="col-lg-2 control-label">Direcci&oacute;n</label>
+			    <label for="nombre" class="col-lg-2 control-label">Rut</label>
 			    <div class="col-lg-10">
-			      <input type="text" class="form-control" id="direccion" name="direccion"
-			             placeholder="Los Capullos #4053, La Florida, La Serena" value="<?php echo $arr["direccion"]; ?>" required>
+			      <input type="text" class="form-control" id="rut" name="rut"
+			             placeholder="11.111.111-1" value="<?php echo $rut; ?>" length="15" required>
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="nombre" class="col-lg-2 control-label">Domicilio</label>
+			    <div class="col-lg-10">
+			      <input type="text" class="form-control" id="domicilio" name="domicilio"
+			             placeholder="Los Capullos #4053, La Florida, La Serena" value="<?php echo $domicilio; ?>" length="150" required>
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="nombre" class="col-lg-2 control-label">Comuna</label>
+			    <div class="col-lg-10">
+			      <input type="text" class="form-control" id="comuna" name="comuna"
+			             placeholder="La Serena" value="<?php echo $comuna; ?>" length="50"  required>
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="nombre" class="col-lg-2 control-label">Giro</label>
+			    <div class="col-lg-10">
+			      <input type="text" class="form-control" id="giro" name="giro"
+			             placeholder="" value="<?php echo $giro; ?>" length="100"  required>
 			    </div>
 			  </div>
 			  <div class="form-group">
 			    <label for="nombre" class="col-lg-2 control-label">Tel&eacute;fono</label>
 			    <div class="col-lg-10">
 			      <input type="text" class="form-control" id="telefono" name="telefono"
-			             placeholder="+56979302846" value="<?php echo $arr["telefono"]; ?>" required>
-			    </div>
-			  </div>
-			  <div class="form-group">
-			    <label for="nombre" class="col-lg-2 control-label">Correo</label>
-			    <div class="col-lg-10">
-			      <input type="email" class="form-control" id="correo" name="correo"
-			             placeholder="micorreo@gmail.com" value="<?php echo $arr["correo"]; ?>" required>
+			             placeholder="+56979302846" value="<?php echo $telefono; ?>" length="15"  required>
 			    </div>
 			  </div>
 			  <div class="modal-footer">
-			      <button type="submit" class="btn btn-default btn-primary">Guardar Datos</button>
+		  		<a href="/login" class="btn btn-default">Cancelar</a>
+		      	<button type="submit" class="btn btn-primary">Guardar Datos</button>
 		      </div>
 			</form>
   		</div>

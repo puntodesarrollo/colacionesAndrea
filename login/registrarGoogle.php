@@ -81,7 +81,7 @@ error_reporting(E_ALL);
 	//Se inicia la sesión con la ID del usuario
 	session_start();
 
-	if($_SESSION['ID']!= $retorno)
+	if(!isset($_SESSION['ID']) || $_SESSION['ID']!= $retorno)
 	{
 		$_SESSION['ID']= $retorno;
 		echo "true";

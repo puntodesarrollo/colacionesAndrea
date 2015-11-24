@@ -26,8 +26,11 @@
       <label id="direccion"></label>
       <br>
       <div class="modal-footer">
-      <a href="modificarDatos.php" class="btn btn-lg btn-primary">Modificar mis Datos</a>
-      <a href="#" id="signout" class="hidden btn btn-lg btn-danger" onclick="signOut();">Cerrar Sesi&oacute;n</a>
+        <a href="modificarDatos.php" class="btn btn btn-primary">Modificar mis Datos Personales</a>
+        <a href="datosFacturacion.php" class="btn btn btn-primary">Agregar/Modificar mis Datos de Facturación</a>
+      </div>
+      <div class="modal-footer">
+        <a href="#" id="signout" class="hidden btn btn btn-danger" onclick="signOut();">Cerrar Sesi&oacute;n</a>
       </div>
     </div>
 
@@ -48,6 +51,11 @@
         $("#info").addClass("hidden");
         $("#signout").addClass("hidden");
         $("#registrar").removeClass("hidden");
+
+        console.log("cerrar sesión");
+
+        window.location.href = "cerrarSesion.php";
+          
       }
     </script>
     <script>
@@ -88,8 +96,9 @@
           .done(function( data ) {
             console.log(data);
 
-            if(data=="true")
+            if(data==="true")
             {
+              console.log("reload");
               location.reload();
             }
           });

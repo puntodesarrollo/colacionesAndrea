@@ -8,7 +8,7 @@
 
 	session_start();
 	$ID=$_SESSION['ID'];
-	
+
 	//Se hace la conexion:
 	$con = new mysqli("localhost", "cpu16669", "HIW7crQ5", "cpu16669_colaciones");
 	//Se avisa si falla la conexion:
