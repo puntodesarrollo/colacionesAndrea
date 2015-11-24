@@ -2,18 +2,18 @@
 
 	session_start();
 
-	include $_SERVER['DOCUMENT_ROOT']."/admin/conexion.php";
+	$conVerificar = include $_SERVER['DOCUMENT_ROOT']."/admin/crearConexion.php";
 
-	$sql="SELECT password FROM admin WHERE usuario = '" . $_SESSION['usuario'] . "' AND ID='" . $_SESSION['IDUsuario'] . "'";
+	$sqlVerificar="SELECT password FROM admin WHERE usuario = '" . $_SESSION['usuario'] . "' AND ID='" . $_SESSION['IDUsuario'] . "'";
 		
-	$result = mysqli_query($con,$sql);
+	$resultVerificar = mysqli_query($conVerificar,$sqlVerificar);
 
-	if(!($result===false) && $result->num_rows>0)
+	if(!($resultVerificar===false) && $resultVerificar->num_rows>0)
 	{	
-		mysqli_close($con);
+		mysqli_close($conVerificar);
 		return true;
 	}
-	mysqli_close($con);
+	mysqli_close($conVerificar);
 	return false;
 
 ?>

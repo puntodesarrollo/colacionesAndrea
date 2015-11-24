@@ -12,7 +12,7 @@
 ?>
 	<br>
 	<br>
-    <h1 class="text-center">Noticias</h1>
+    <h1 class="text-center">Ventas</h1>
 	<div class="table-responsive">
 		<table class="table table-hover">
 			<thead>

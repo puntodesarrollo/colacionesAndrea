@@ -1,63 +1,55 @@
-<?php
-	$sesion = include $_SERVER['DOCUMENT_ROOT']."/admin/verificarSesion.php";
-
-	if($sesion===false){
-		header("location:/admin/login");
-		exit;
-	}
-	
+<?php	
 	if($IDpedido!=null){
 
 		//obtener los datos de la bd
-		include $_SERVER['DOCUMENT_ROOT']."/admin/conexion.php";
-		
-		$sql="SELECT * FROM pedidos WHERE ID='$IDpedido'";
+		$conObtenerDatosVenta = include $_SERVER['DOCUMENT_ROOT']."/admin/crearConexion.php";
 
-		$result = mysqli_query($con,$sql);
+		$sqlObtenerDatosVenta="SELECT * FROM pedidos WHERE ID='$IDpedido'";
+
+		$resultObtenerDatosVenta = mysqli_query($conObtenerDatosVenta,$sqlObtenerDatosVenta);
 		
-		if($result===false || $result->num_rows===0)
+		if($resultObtenerDatosVenta===false || $resultObtenerDatosVenta->num_rows===0)
 		{
 			exit;
 		}
 		
-		for ($i = 0; $i <$result->num_rows; $i++) {
-			$result->data_seek($i);
-			$fila = $result->fetch_assoc();
+		for ($z = 0; $z <$resultObtenerDatosVenta->num_rows; $z++) {
+			$resultObtenerDatosVenta->data_seek($z);
+			$filaObtenerDatosVenta = $resultObtenerDatosVenta->fetch_assoc();
 
-			$IDusuario = $fila["IDusuario"];
-			$Fecha = $fila["fecha"];
+			$IDusuario = $filaObtenerDatosVenta["IDusuario"];
+			$Fecha = $filaObtenerDatosVenta["fecha"];
 		}
 
 
 		//Se obtiene el nombre del usuario:
-		$sql="SELECT * FROM usuarios WHERE ID='$IDusuario'";
+		$sqlObtenerDatosVenta="SELECT * FROM usuarios WHERE ID='$IDusuario'";
 
-		$result = mysqli_query($con,$sql);
+		$resultObtenerDatosVenta = mysqli_query($conObtenerDatosVenta,$sqlObtenerDatosVenta);
 		
 		$Usuario="";
 
-		for ($i = 0; $i <$result->num_rows; $i++) {
-			$result->data_seek($i);
-			$fila = $result->fetch_assoc();
+		for ($z = 0; $z <$resultObtenerDatosVenta->num_rows; $z++) {
+			$resultObtenerDatosVenta->data_seek($z);
+			$filaObtenerDatosVenta = $resultObtenerDatosVenta->fetch_assoc();
 
-			$Usuario = $fila["nombre"];
+			$Usuario = $filaObtenerDatosVenta["nombre"];
 		}
 
 		//Se obtiene el total de venta:
 		$Total = 0;
 
-		$sql="SELECT * FROM detallepedido WHERE IDpedido='$IDpedido'";
+		$sqlObtenerDatosVenta="SELECT * FROM detallepedido WHERE IDpedido='$IDpedido'";
 
-		$result = mysqli_query($con,$sql);
+		$resultObtenerDatosVenta = mysqli_query($conObtenerDatosVenta,$sqlObtenerDatosVenta);
 
-		for ($i = 0; $i <$result->num_rows; $i++) {
-			$result->data_seek($i);
-			$fila = $result->fetch_assoc();
+		for ($z = 0; $z <$resultObtenerDatosVenta->num_rows; $z++) {
+			$resultObtenerDatosVenta->data_seek($z);
+			$filaObtenerDatosVenta = $resultObtenerDatosVenta->fetch_assoc();
 
-			$Total += ($fila["cantidad"] * $fila["precio"]);
+			$Total += ($filaObtenerDatosVenta["cantidad"] * $filaObtenerDatosVenta["precio"]);
 		}
 		
-		mysqli_close($con);
-
+		mysqli_close($conObtenerDatosVenta);
 	}
 ?>

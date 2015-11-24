@@ -1,28 +1,17 @@
 <?php 
 
-	$sesion = include $_SERVER['DOCUMENT_ROOT']."/admin/verificarSesion.php";
-
-	if($sesion===false){
-		header("location:/admin/login");
-		exit;
-
-	}
-
 	if($_GET["t"]!=null){
 		$ID = $_GET["t"];
 	}
 	else
 	{
-		header("location:/admin/login");
+		header("location:/login/misCompras.php");
 		exit;
 	}
 
 
-	include $_SERVER['DOCUMENT_ROOT']."/admin/header.php";
 ?>
-	<br>
-	<br>
-    <h1 class="text-center">Noticias</h1>
+    <h1 class="text-center">Detalle de Pedido</h1>
 	<div class="table-responsive">
 		<table class="table table-hover">
 			<thead>
@@ -54,15 +43,14 @@
 								<td>'. $fila["precio"] .'</td>
 							</tr>';
 					}
+					mysqli_close($con);
 				?>				
 			</tbody>
 		</table>
 		<div class="modal-footer">
-			<a href="index.php" class="btn btn-primary"><span class="glyphicon glyphicon-chevron-left"></span>&nbsp;Volver</a>
+			<a href="misCompras.php" class="btn btn-primary"><span class="glyphicon glyphicon-chevron-left"></span>&nbsp;Volver</a>
 		</div>
 	</div>
 
 <?php
-	mysqli_close($con);
-	include $_SERVER['DOCUMENT_ROOT']."/admin/footer.php";
 ?>

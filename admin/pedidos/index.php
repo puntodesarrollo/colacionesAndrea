@@ -12,7 +12,7 @@
 ?>
 	<br>
 	<br>
-    <h1 class="text-center">Noticias</h1>
+    <h1 class="text-center">Pedidos</h1>
 	<div class="table-responsive">
 		<table class="table table-hover">
 			<thead>
@@ -55,7 +55,7 @@
 									</a></td>
 							</tr>';
 					}
-				?>				
+				?>
 			</tbody>
 		</table>
 		<div class="modal-footer">
