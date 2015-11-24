@@ -45,7 +45,7 @@ $sesion = include $_SERVER['DOCUMENT_ROOT']."/admin/verificarSesion.php";
 			<li><a href="/admin/productos">Productos</a></li>			
 			<li><a href="/admin/creatuplato">Crea Tu Plato</a></li>
 			<li><a href="/admin/pedidos">Pedidos</a></li>	
-			<li><a href="ventas.php">Registro de ventas</a></li>
+			<li><a href="/admin/ventas">Registro de ventas</a></li>
 			<li><a href="/admin/noticias">Noticias</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
