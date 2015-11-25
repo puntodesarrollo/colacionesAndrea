@@ -7,11 +7,12 @@
 	$retorno="-1";
 
 	session_start();
-	$IDusuario=$_SESSION['ID'];
+	$IDusuario = $_SESSION['ID'];
+	$ipUsuario = $_SERVER["REMOTE_ADDR"];
 
 	$conexion = include $_SERVER['DOCUMENT_ROOT']."/admin/crearConexion.php";
 
-	$sql="SELECT * FROM compras WHERE IDusuario='$IDusuario'";
+	$sql="SELECT * FROM compras WHERE IDusuario='$IDusuario' OR ipUsuario='$ipUsuario'";
 
 	$resultado = mysqli_query($conexion,$sql);
 
