@@ -15,16 +15,7 @@
 	$telefono=$_POST["telefono"];
 	
 	//Se guardan los datos del usuario
-	$con = new mysqli("localhost", "cpu16669", "HIW7crQ5", "cpu16669_colaciones");
-	//Se avisa si falla la conexion:
-	if ($con->connect_errno) {
-		echo "Falló la conexión con MySQL: (" . $con->connect_errno . ") " . $con->connect_error;
-	}
-	
-	if (!$con->set_charset("utf8")) {
-		printf("Error cargando el conjunto de caracteres utf8: %s\n", $con->error);
-	}							
-	
+	include $_SERVER['DOCUMENT_ROOT']."/admin/conexion.php";
 	$sql="UPDATE usuarios SET nombre = '$nombre', direccion = '$direccion', telefono = '$telefono', correo = '$correo' WHERE ID = '$ID'";
 
 	$result = mysqli_query($con,$sql);

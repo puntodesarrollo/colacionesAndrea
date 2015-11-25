@@ -1,7 +1,7 @@
 <?php
 	include 'configFacebook.php';
   session_start();
-  $con = new mysqli("localhost", "cpu16669", "HIW7crQ5", "cpu16669_colaciones");
+  $con = new mysqli("localhost", "cco21607", "ndJ3bWpf", "cco21607_colaciones");
   if ($con->connect_errno) {
     echo "Falló la conexión con MySQL: (" . $con->connect_errno . ") " . $con->connect_error;
   }
