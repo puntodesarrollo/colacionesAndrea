@@ -42,7 +42,8 @@ $sesion = include $_SERVER['DOCUMENT_ROOT']."/admin/verificarSesion.php";
 		<!-- Collection of nav links and other content for toggling -->
 		<div id="navbarCollapse" class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
-			<li><a href="/admin/productos">Productos</a></li>			
+			<li><a href="/admin/productos">Productos</a></li>
+			<li><a href="/admin/categorias">Categorías</a></li>
 			<li><a href="/admin/creatuplato">Crea Tu Plato</a></li>
 			<li><a href="/admin/pedidos">Pedidos</a></li>	
 			<li><a href="/admin/ventas">Registro de ventas</a></li>

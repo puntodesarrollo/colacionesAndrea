@@ -25,7 +25,7 @@ Se debe establecer una variable antes de incluirlo en otro script llama $IDprodu
 
 
 	//Se obtiene la cantidad ya solicitada actualmente del producto:
-	$sentenciaSql="SELECT * FROM pedidos, detallepedido WHERE detallepedido.IDpedido=pedidos.ID AND IDproducto='$IDproducto' AND pedidos.entregado='false'";
+	$sentenciaSql="SELECT * FROM pedidos, detallepedido WHERE detallepedido.IDpedido=pedidos.ID AND pedidos.fecha>CURDATE() AND IDproducto='$IDproducto'";
 
 	$unResultado = mysqli_query($conex,$sentenciaSql);
 

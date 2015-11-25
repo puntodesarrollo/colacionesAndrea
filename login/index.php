@@ -10,6 +10,8 @@
     <!-- Bootstrap core CSS -->
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/font-awesome-4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-social.css">
 
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -44,9 +46,11 @@
 
     <div class="clearfix"></div>
 <br>
-    <div id="registrar" class="col-sm-4 col-sm-offset-4 text-center">
-      <a href="<?php echo $loginUrl; ?>">Log in with Facebook!</a>
-      <div class="g-signin2" id="signin" data-onsuccess="onSignIn" data-theme="dark"></div>
+    <div id="registrar" class="col-sm-4 col-sm-offset-4">
+      <a href="#" class="g-signin2 btn btn-social btn-google" id="signin" style="width:200px; height:34px;" data-onsuccess="onSignIn" data-theme="dark"></a>
+      <br>
+      <br>
+      <a href="<?php echo $loginUrl; ?>" class="btn btn-social btn-facebook"> <span class="fa fa-facebook"></span> Ingresar con Facebook</a>      
     </div>
 
     <script>
@@ -70,6 +74,7 @@
 
       $( document ).ready(function() {
           console.log( "ready!" );
+
           $.get( "obtenerUsuario.php")
             .done(function( data ) {
               console.log(data);
@@ -83,6 +88,7 @@
               $("#correo").html(datos.correo);
               $("#direccion").html(datos.direccion);
               $("#telefono").html(datos.telefono);
+              
           });
       });
 

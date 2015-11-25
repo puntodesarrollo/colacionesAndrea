@@ -30,9 +30,9 @@
 					include $_SERVER['DOCUMENT_ROOT']."/admin/conexion.php";
 
 					$sql="SELECT ID, IDusuario FROM pedidos WHERE entregado='false'";
-		
+
 					$result = mysqli_query($con,$sql);
-					
+
 					for ($i = 0; $i <$result->num_rows; $i++) 
 					{
 						$result->data_seek($i);

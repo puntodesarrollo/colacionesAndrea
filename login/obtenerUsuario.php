@@ -7,6 +7,7 @@
 	$retorno="-1";
 
 	session_start();
+
 	$ID=$_SESSION['ID'];
 
 	//Se hace la conexion:
@@ -22,8 +23,15 @@
 			$fila = $result->fetch_assoc();
 			$arr = array('id_facebook' => $fila["id_facebook"], 'id_google' => $fila["id_google"], 'nombre' => $fila["nombre"], 'direccion' => $fila["direccion"], 'telefono' => $fila["telefono"], 'es_empresa' =>$fila["es_empresa"], 'correo' => $fila["correo"]);
 		}
-		mysqli_close($con);
 	}
+	
+	$ipUsuario = $_SERVER["REMOTE_ADDR"];
+
+	$sql="UPDATE compras SET IDusuario='$ID' WHERE ipUsuario='$ipUsuario'";
+
+	$result = mysqli_query($con,$sql);
+
+	mysqli_close($con);
 	
 	echo json_encode($arr);
 ?>
