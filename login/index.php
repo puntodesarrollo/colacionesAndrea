@@ -8,16 +8,15 @@
     <meta name="google-signin-client_id" content="1014154852560-1m65dufsnfoahaagpb9keavo8bufjlco.apps.googleusercontent.com">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <!-- Bootstrap core CSS -->
-    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   </head>
   <body>
 
-    <div class="col-sm-6 col-sm-offset-3 hidden text-center" id="info">
+    <div class="col-sm-6 col-sm-offset-3 hidden" id="info">
       <br>
-      <img src="" id="imagen" class="img-rounded">
-      <br>
-      <label id="nombre"></label>
+      <label id="nombre" class="text-center"></label>
       <br>
       <label id="correo"></label>
       <br>
@@ -79,8 +78,6 @@
               $("#correo").html(datos.correo);
               $("#direccion").html(datos.direccion);
               $("#telefono").html(datos.telefono);
-              $("#imagen").attr("src","");
-              $("#imagen").attr("src",profile.getImageUrl());
           });
       });
 

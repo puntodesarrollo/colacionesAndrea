@@ -11,15 +11,7 @@ error_reporting(E_ALL);
 	$correo=$_GET["correo"];
 	
 	//Se hace la conexion:
-	$con = new mysqli("localhost", "cpu16669", "HIW7crQ5", "cpu16669_colaciones");
-	//Se avisa si falla la conexion:
-	if ($con->connect_errno) {
-		echo "Falló la conexión con MySQL: (" . $con->connect_errno . ") " . $con->connect_error;
-	}
-	
-	if (!$con->set_charset("utf8")) {
-		printf("Error cargando el conjunto de caracteres utf8: %s\n", $con->error);
-	}							
+	include $_SERVER['DOCUMENT_ROOT']."/admin/conexion.php";
 	
 	$sql="SELECT * FROM usuarios WHERE id_google='$idGoogle'";
 
@@ -36,33 +28,14 @@ error_reporting(E_ALL);
 	else{
 		mysqli_close($con);
 
-		//Se agrega el nuevo usuario
-		$con = new mysqli("localhost", "cpu16669", "HIW7crQ5", "cpu16669_colaciones");
-		//Se avisa si falla la conexion:
-		if ($con->connect_errno) {
-			echo "Falló la conexión con MySQL: (" . $con->connect_errno . ") " . $con->connect_error;
-		}
-		
-		if (!$con->set_charset("utf8")) {
-			printf("Error cargando el conjunto de caracteres utf8: %s\n", $con->error);
-		}							
+		include $_SERVER['DOCUMENT_ROOT']."/admin/conexion.php";
 		
 		$sql="INSERT INTO usuarios(id_facebook, id_google, nombre, direccion, telefono, es_empresa, correo) VALUES('','$idGoogle', '$nombre', '', '', 'false', '$correo')";
 
 		$result = mysqli_query($con,$sql);
 		mysqli_close($con);
 
-
-		//Se obtiene la id del nuevo usuario
-		$con = new mysqli("localhost", "cpu16669", "HIW7crQ5", "cpu16669_colaciones");
-		//Se avisa si falla la conexion:
-		if ($con->connect_errno) {
-			echo "Falló la conexión con MySQL: (" . $con->connect_errno . ") " . $con->connect_error;
-		}
-		
-		if (!$con->set_charset("utf8")) {
-			printf("Error cargando el conjunto de caracteres utf8: %s\n", $con->error);
-		}							
+		include $_SERVER['DOCUMENT_ROOT']."/admin/conexion.php";
 		
 		$sql="SELECT * FROM usuarios WHERE id_google='$idGoogle'";
 
