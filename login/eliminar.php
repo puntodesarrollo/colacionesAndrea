@@ -16,5 +16,5 @@
 
 	mysqli_close($conexionActualizar);
 
-	header("location:/login/carro.php");
+	header("location:/store-cart.php");
 ?>
