@@ -1,103 +1,6 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Marine Food - Food And Restaurant HTML Template</title>
-        <meta name="description" content="Food And Restaurant HTML Template">
-        <meta name="viewport" content="width=device-width, initial-scale=1">        
-        <meta name="theme-color" content="#23292c"> <!-- Android 5.0 Tab Color -->
-        <link rel="shortcut icon" href="favicon.ico">
-
-        <!-- Web Fonts -->
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700,300,400' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
-
-        <!-- Icon Fonts -->
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="css/fontello.css">
-        
-        <!-- Plugins CSS -->
-        <link rel="stylesheet" href="css/rev-slider-settings.css">
-        <link rel="stylesheet" href="css/animate.css">
-        <link rel="stylesheet" href="css/owl.carousel.css">
-        <link rel="stylesheet" href="css/magnific-popup.css">
-
-        <!-- Template CSS -->
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/reset.css">
-        <link rel="stylesheet" href="css/main.css">
-
-        <!-- Demo Purpose CSS -->
-        <link rel="stylesheet" href="css/custom-bg.css">
-
-        <!-- Head JS Libraries -->
-        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
-        <script src="http://maps.google.com/maps/api/js"></script><!-- REQUIRED FOR GOOGLE MAP -->
-    </head>
-    <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-
-        <!-- Start mobile-nav -->
-        <div class="mobile-nav-container clearfix">
-            <div class="main-nav-trigger mobile-nav-trigger">
-                <a href="#"></a>
-            </div>
-        </div>
-        <!-- End mobile-nav -->
-
-        <!-- Start main-nav-trigger -->
-        <div class="main-nav-trigger">
-            <a href="#">Menu</a>
-        </div>
-        <!-- End main-nav-trigger -->
-
-        <!-- Start main-nav -->
-        <div class="main-nav-container dark">
-            <div class="main-nav-inner">
-                <div class="logo-container">
-                    <a href="#">
-                        <img src="img/logo/logo.png" alt="Marine Food Logo">
-                    </a>
-                </div><!-- /logo-container -->
-                <nav class="main-nav">
-                    <ul>
-                        <li class="active"><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="store.html">Store</a></li>
-                        <li><a href="menu.html">Menu</a></li>
-                        <li><a href="reservation.html">Reservation</a></li>
-                    </ul>
-                </nav>
-                <div class="tweets-container">
-                    <div class="twitter-logo">
-                        <i class="fa fa-twitter"></i>
-                    </div><!-- /twitter-logo -->
-                    <div class="tweet"></div>
-                </div><!-- /tweets-container -->
-                <div class="socials-container">
-                    <ul>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-skype"></i></a></li>
-                    </ul>
-                </div><!-- /socials-container -->
-                <div class="copyright">
-                    <p>&copy; 2014 The Gourment</p>
-                    <p>All Rights Reserved</p>
-                </div><!-- /copyright -->
-            </div><!-- /main-nav-inner -->
-        </div><!-- /main-nav-container -->
-        <!-- End main-nav -->
-
-        <!-- Start wrapper -->
-        <div class="wrapper">
+<?php
+    include $_SERVER['DOCUMENT_ROOT']."/header.php";
+?>
         
             <!-- Start main-header -->
             <header class="main-header slider-on" id="top">
@@ -201,12 +104,6 @@
                                     data-start="4000"
                                     data-speed="800"
                                     data-easing="Power2.easeInOut">
-                                    <a href="#" class="custom-button button-style1 animateme"
-                                        data-when="exit"
-                                        data-from="0"
-                                        data-to="0.6"
-                                        data-opacity="0"
-                                        data-translatey="60"><i class="icon-eye"></i>View Details</a>
                                 </div>
                             </li>
                             <li data-transition="fade" data-slotamount="7" data-masterspeed="1000" >
@@ -306,12 +203,6 @@
                                     data-start="4000"
                                     data-speed="800"
                                     data-easing="Power2.easeInOut">
-                                    <a href="#" class="custom-button button-style1 animateme"
-                                        data-when="exit"
-                                        data-from="0"
-                                        data-to="0.6"
-                                        data-opacity="0"
-                                        data-translatey="60"><i class="icon-eye"></i>View Details</a>
                                 </div>
                             </li>
                             <li data-transition="fade" data-slotamount="7" data-masterspeed="1000">
@@ -411,12 +302,6 @@
                                     data-start="4000"
                                     data-speed="800"
                                     data-easing="Power2.easeInOut">
-                                    <a href="#" class="custom-button button-style1 animateme"
-                                        data-when="exit"
-                                        data-from="0"
-                                        data-to="0.6"
-                                        data-opacity="0"
-                                        data-translatey="60"><i class="icon-eye"></i>View Details</a>
                                 </div>
                             </li>
                         </ul>
@@ -993,42 +878,7 @@
                 </div><!-- /container -->
             </footer>
 
-        </div><!-- /wrapper -->
-        <!-- End wrapper -->
 
-        <script src="js/vendor/jquery-2.1.3.min.js"></script>
-        <script src="js/imagesloaded.pkgd.min.js"></script>
-        <script src="js/jquery.themepunch.tools.min.js"></script>
-        <script src="js/jquery.themepunch.revolution.min.js"></script>
-        <script src="js/retina.min.js"></script>
-        <script src="js/SmoothScroll.js"></script>
-        <script src="js/owl.carousel.min.js"></script>
-        <script src="js/jquery.mixitup.min.js"></script>
-        <script src="js/jquery.magnific-popup.min.js"></script>
-        <script src="js/jquery.stellar.min.js"></script>
-        <script src="js/jquery.nicescroll.min.js"></script>
-        <script src="js/jquery.nav.js"></script>
-        <script src="js/cd-google-map.js"></script>
-        <script src="js/wow.min.js"></script>
-        <script src="js/tweetie.min.js"></script>
-        <script src="js/jquery.scrollme.min.js"></script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
-        <script type="text/javascript">
-            jQuery(document).ready(function() {
-               jQuery('.main-slider').revolution(
-                {
-                    delay:9000,
-                    startwidth:1170,
-                    startheight: 960,
-                    hideThumbs:10,
-                    fullScreen: 'on',
-                    navigationStyle: 'preview4',
-                    parallax: 'scroll',
-                    parallaxLevels:[100,-80]
-                });
-            });
-        </script>
-
-    </body>
-</html>
+<?php
+    include $_SERVER['DOCUMENT_ROOT']."/footer.php";
+?>
