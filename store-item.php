@@ -1,34 +1,60 @@
 <?php
-    include $_SERVER['DOCUMENT_ROOT']."/header.php";
+        include $_SERVER['DOCUMENT_ROOT']."/header.php";
+        include $_SERVER['DOCUMENT_ROOT']."/admin/conexion.php";
 
-    include $_SERVER['DOCUMENT_ROOT']."/admin/conexion.php";
+        $id_producto= $_GET["p"];       
 
-    $sqlCategorias="SELECT * FROM categorias";      
+        $sql="SELECT * FROM productos WHERE id='$id_producto'"; 
+
+        $result = mysqli_query($con,$sql);
+        
+
+        for ($i = 0; $i <$result->num_rows; $i++) {         
+            $result->data_seek($i);
+            $fila = $result->fetch_assoc();                     
+            $nombre=$fila["nombre"];                                
+            $descripcion=$fila["descripcion"];
+            $cantidad=$fila["cantidad"];
+            $precio=$fila["precio"];
+            $Idcategoria = $fila["Idcategoria"];            
+            
+        }
+
+
+        $sqlCategoriaProd="SELECT * FROM categorias WHERE ID='$Idcategoria'"; 
+
+        $resulCategoriaProd = mysqli_query($con,$sqlCategoriaProd);
+        
+
+        for ($i = 0; $i <$resulCategoriaProd->num_rows; $i++) {         
+            $resulCategoriaProd->data_seek($i);
+            $fila = $resulCategoriaProd->fetch_assoc();                     
+            $nombreCategoria=$fila["nombre"];                                
+            
+        }
+
+        $sqlCategorias="SELECT * FROM categorias";      
                 
-    $resultCategorias = mysqli_query($con,$sqlCategorias);
-
-
+        $resultCategorias = mysqli_query($con,$sqlCategorias);
 ?>
+        <div class="wrapper">
+        
+            <!-- Start main-header -->
             <header class="main-header" id="top">
                 <?php
                     include $_SERVER['DOCUMENT_ROOT']."/carroCompra.php";
-                ?>    
-                <div class="top-banner-container top-banner-container-style2">
-                    <div class="top-banner-bg custom-bg5 parallax" data-stellar-background-ratio="0.5"></div>
-                    <div class="top-banner">
-                        <div class="top-image">
-                            <img src="img/slider-images/our-store.png" alt="Marine Food About">
-                        </div><!-- /top-image -->
-                        <div class="bottom-image">
-                            <img src="img/slider-images/cooking-since2001.png" alt="Marine Food About">
-                        </div><!-- /bottom-image -->
-                    </div><!-- /top-banner -->
-                    <div class="header-bottom-bar">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-9">
-                                    <ul class="category-filter store-category-filter">
-                                        <li class="filter active" data-filter="all"><span>Todos</span></li>
+                ?> 
+                <div class="logo-container light-shark-bg align-center">
+                    <a href="#" class="logo">
+                        <img src="img/logo/logo.png" alt="Marine Food Logo">
+                    </a>
+                </div><!-- /logo-container -->
+                <div class="header-bottom-bar">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <ul class="category-filter store-category-filter">
+                                    <li class="filter active" data-filter="all"><span>Todos</span></li>
                                         <?php
                                             for ($i = 0; $i <$resultCategorias->num_rows; $i++) {           
                                                 $resultCategorias->data_seek($i);
@@ -38,67 +64,58 @@
                                                 echo "<li class='filter' data-filter='.".$nombreCat."'><span>".$nombreCat."</span></li>";        
                                             }
                                         ?>
+                                </ul>
+                                <br>
+                            </div><!-- col-md-9 -->
+                            <div class="col-md-3">                               
+                            </div><!-- /col-md-3 -->
+                        </div><!-- /row -->
+                    </div><!-- /container -->
+                </div><!-- /header-bottom-bar -->
+            </header>
+            <!-- End main-header -->
 
-                                    </ul>
-                                    <br>
-                                </div><!-- col-md-9 -->
-                              
-                            </div><!-- /row -->
-                        </div><!-- /container -->
-                    </div><!-- /header-bottom-bar -->
-                </div><!-- /top-banner-container -->
-            </header>        
-
-            <?php
-
-                $diaActual= date("w");
-
-                $sqlSelect="SELECT productos.id,productos.nombre,productos.descripcion,productos.precio,productos.cantidad,categorias.nombre AS nombreCategoria FROM productos,dias_productos,categorias WHERE dias_productos.dia='$diaActual' AND productos.id=dias_productos.id_producto AND productos.mostrar=1 AND categorias.ID=productos.Idcategoria";                  
-                $resultSelect = mysqli_query($con,$sqlSelect);      
-
-            ?>
-
-            <section class="store-items">
+            <section class="store-items store-items-details">
                 <div class="container">
                     <div class="row">
-                    <?php                                                                   
-                    
-                       for ($i = 0; $i <$resultSelect->num_rows; $i++) {
-                            $resultSelect->data_seek($i);
-                            $fila = $resultSelect->fetch_assoc();
-
-                            $IDproducto=$fila["id"];
-                            $nombreProd=$fila["nombre"];
-                            $precio=$fila["precio"];
-                            $descripcion=$fila["descripcion"];
-
-                            $categoria=$fila["nombreCategoria"];
-
-                            //include '../obtenerDatosProducto.php';                          
-                            //$stock=$cantidadDisponible; 
-                            echo '<div class="col-md-4 col-sm-6 col-xs-12 mix '.$categoria.'">';
-                                echo '<div class="store-item wow fadeInDown">';
-                                    echo '<figure>';
-                                        echo '<a href="store-item.php?p='.$IDproducto.'">';
-                                            echo '<img src="img/gallery/gallery18.jpg" alt="'.$nombreProd.'">';
-                                        echo '</a>';
-                                    echo '</figure>';
-                                    echo '<h3 class="food-name"><a href="store-item.html">'.$nombreProd.'</a></h3>';
-                                    echo '<ul class="food-category">';
-                                        echo '<li>'.$descripcion.'</li>';
-                                    echo '</ul>';
-                                    echo '<div class="food-order">';
-                                        echo '<p class="food-price">$'.number_format($precio).'</p>';
-                                        echo '<a href="" class="add-to-cart-link" onclick="return funcionAgregar(\''.$fila["id"].'\')">Agregar al Pedido</a>';
-                                    echo '</div>';
-                                echo '</div>';
-                            echo '</div>';                            
-                        }                   
-                    ?>            
-                    </div><!-- /row -->                    
+                        <div class="col-md-12">
+                            <div class="store-item store-item-detail row">
+                                <div class="col-md-6 wow fadeInLeft">
+                                    <div class="item-slideshow">
+                                        <div class="main-image">
+                                            <figure><img src="img/gallery/gallery24.jpg" alt="Marine Food"></figure>
+                                            <figure><img src="img/gallery/gallery28.jpg" alt="Marine Food"></figure>
+                                            <figure><img src="img/gallery/gallery29.jpg" alt="Marine Food"></figure>
+                                        </div><!-- /main-image -->
+                                        <div class="thumbnails">
+                                            <figure><img src="img/gallery/gallery25.jpg" alt="Marine Food"></figure>
+                                            <figure><img src="img/gallery/gallery26.jpg" alt="Marine Food"></figure>
+                                            <figure><img src="img/gallery/gallery27.jpg" alt="Marine Food"></figure>
+                                        </div><!-- /thumbnails -->
+                                    </div><!-- /item-slideshow -->
+                                </div><!-- /col-md-6 -->
+                                <div class="col-md-6 wow fadeInRight">
+                                    <ul class="breadcrumb">
+                                        
+                                        <li><?php echo $nombreCategoria;?></li>
+                                    </ul>
+                                    <div class="food-info">
+                                        <h3 class="food-name"><?php echo $nombre; ?></h3>
+                                        <p class="food-price"><?php echo '$'.number_format($precio); ?></p>
+                                        <p><?php echo $descripcion; ?></p>
+                                    </div><!-- /food-info -->                                    
+                                    <form class="food-order-form">
+                                        <input type="text" name="cantidad" id="order-count" value="1">
+                                        <?php
+                                             echo '<input type="submit" value="Agregar" onclick="return funcionAgregar(\''.$id_producto.'\')">';
+                                        ?>
+                                    </form><!-- /food-order -->                                                                        
+                                </div><!-- /col-md-6 -->
+                            </div><!-- /store-item -->
+                        </div><!-- /col-md-12 -->                        
+                    </div><!-- /row -->
                 </div><!-- /container -->
             </section>
-
             <section class="clients white-rock-bg">
                 <div class="container">
                     <div class="clients-carousel grayscale-image row">
@@ -205,9 +222,10 @@
 <script type="text/javascript">
     function funcionAgregar(id) {        
         //alert(id);
-       
+        var cantidad = $("#order-count").val();
+        
             $.ajax({
-                url: "/login/compra/agregarCompraBD.php", data: { "idProducto": id },
+                url: "/login/compra/agregarCompraBD.php", data: { "idProducto": id ,"cantidad":cantidad},
                 success: function (retorno) {                  
                     //$("#divCarro").append(texto);
                     
@@ -218,7 +236,8 @@
     }
  
         
-</script>            
+</script> 
+
 <?php
     include $_SERVER['DOCUMENT_ROOT']."/footer.php";
 ?>

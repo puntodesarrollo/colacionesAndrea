@@ -4,7 +4,11 @@
 	date_default_timezone_set("America/Santiago");
 
 	$idProducto = $_GET["idProducto"];	
-	$cantidad = $_GET["cantidad"];	
+	$cantidad = $_GET["cantidad"];
+	if($cantidad==""){
+
+		$cantidad=1;
+	}	
 	$fechaActual = date("Y-m-d G:i:s");	
 	$idUsuario=$_SESSION["ID"];
 	$ipUsuario = $_SERVER["REMOTE_ADDR"];
