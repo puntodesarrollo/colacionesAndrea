@@ -1,137 +1,10 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Marine Food - Food And Restaurant HTML Template</title>
-        <meta name="description" content="Food And Restaurant HTML Template">
-        <meta name="viewport" content="width=device-width, initial-scale=1">        
-        <meta name="theme-color" content="#23292c"> <!-- Android 5.0 Tab Color -->
-        <link rel="shortcut icon" href="favicon.ico">
-
-        <!-- Web Fonts -->
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700,300,400' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
-
-        <!-- Icon Fonts -->
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="css/fontello.css">
-        
-        <!-- Plugins CSS -->
-        <link rel="stylesheet" href="css/rev-slider-settings.css">
-        <link rel="stylesheet" href="css/animate.css">
-        <link rel="stylesheet" href="css/owl.carousel.css">
-        <link rel="stylesheet" href="css/magnific-popup.css">
-
-        <!-- Template CSS -->
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/reset.css">
-        <link rel="stylesheet" href="css/main.css">
-
-        <!-- Demo Purpose CSS -->
-        <link rel="stylesheet" href="css/custom-bg.css">
-
-        <!-- Head JS Libraries -->
-        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
-        <script src="http://maps.google.com/maps/api/js"></script><!-- REQUIRED FOR GOOGLE MAP -->
-    </head>
-    <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-
-        <!-- Start mobile-nav -->
-        <div class="mobile-nav-container clearfix">
-            <div class="main-nav-trigger mobile-nav-trigger">
-                <a href="#"></a>
-            </div>
-        </div>
-        <!-- End mobile-nav -->
-
-        <!-- Start main-nav-trigger -->
-        <div class="main-nav-trigger">
-            <a href="#">Menu</a>
-        </div>
-        <!-- End main-nav-trigger -->
-
-        <!-- Start main-nav -->
-        <div class="main-nav-container dark">
-            <div class="main-nav-inner">
-                <div class="logo-container">
-                    <a href="#">
-                        <img src="img/logo/logo.png" alt="Marine Food Logo">
-                    </a>
-                </div><!-- /logo-container -->
-                <nav class="main-nav">
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li class="active"><a href="store.html">Store</a></li>
-                        <li><a href="menu.html">Menu</a></li>
-                        <li><a href="reservation.html">Reservation</a></li>
-                    </ul>
-                </nav>
-                <div class="tweets-container">
-                    <div class="twitter-logo">
-                        <i class="fa fa-twitter"></i>
-                    </div><!-- /twitter-logo -->
-                    <div class="tweet"></div>
-                </div><!-- /tweets-container -->
-                <div class="socials-container">
-                    <ul>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-skype"></i></a></li>
-                    </ul>
-                </div><!-- /socials-container -->
-                <div class="copyright">
-                    <p>&copy; 2014 The Gourment</p>
-                    <p>All Rights Reserved</p>
-                </div><!-- /copyright -->
-            </div><!-- /main-nav-inner -->
-        </div><!-- /main-nav-container -->
-        <!-- End main-nav -->
-
-        <!-- Start wrapper -->
-        <div class="wrapper">
-        
-            <!-- Start main-header -->
+<?php
+    include $_SERVER['DOCUMENT_ROOT']."/header.php";
+?>
             <header class="main-header" id="top">
-                <div class="container">
-                    <div class="shopping-cart">
-                        <div class="cart-container clearfix">
-                            <a href="#" class="cart-link"><span>2</span></a>
-                            <div class="cart-items">
-                                <div class="cart-counter">
-                                    <h5><span><span>2</span> Items</span> In Cart</h5>
-                                </div><!-- /cart-counter -->
-                                <a href="" class="remove-items"><i class="fa fa-times-circle"></i></a>
-                                <ul>
-                                    <li>
-                                        <div class="item-container clearfix">
-                                            <figure><img src="img/gallery/gallery20.jpg" alt="Marine Food Items"></figure>
-                                            <p class="food-name"><a href="#">Black Pasta with Meat</a></p>
-                                            <p class="food-price">$27</p>
-                                        </div><!-- /item-contaeinr -->
-                                    </li>
-                                    <li>
-                                        <div class="item-container clearfix">
-                                            <figure><img src="img/gallery/gallery21.jpg" alt="Marine Food Items"></figure>
-                                            <p class="food-name"><a href="#">Spring Fruit Slad</a></p>
-                                            <p class="food-price">$24</p>
-                                        </div><!-- /item-contaeinr -->
-                                    </li>
-                                </ul>
-                                <a href="store-cart.html" class="button view-cart-btn">View Cart</a>
-                                <a href="store-checkout.html" class="button checkout-btn">Checkout</a>
-                            </div><!-- /cart-items -->
-                        </div><!-- /cart-container -->
-                    </div><!-- /shopping-cart -->
-                </div><!-- /container -->
+                <?php
+                    include $_SERVER['DOCUMENT_ROOT']."/carroCompra.php";
+                ?>    
                 <div class="top-banner-container top-banner-container-style2">
                     <div class="top-banner-bg custom-bg5 parallax" data-stellar-background-ratio="0.5"></div>
                     <div class="top-banner">
@@ -163,77 +36,7 @@
                         </div><!-- /container -->
                     </div><!-- /header-bottom-bar -->
                 </div><!-- /top-banner-container -->
-            </header>
-            <!-- End main-header -->
-
-            <section class="food-banner">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-5 col-md-6 wow fadeInLeft">
-                            <div class="banner features-right features-active">
-                                <div class="image-container">
-                                    <img src="img/gallery/gallery17.jpg" alt="Marine Food Banner">
-                                    <div class="banner-title">
-                                        <img src="img/slider-images/tasty-brunch.png" alt="Tasty Brunch">
-                                    </div><!-- /banner-title -->
-                                </div>
-                                <div class="banner-features">
-                                    <div class="banner-features-inner">
-                                        <div class="food-price">
-                                            <p><sup>$</sup>7<sup class="decimals">99</sup></p>
-                                        </div><!-- /food-price -->
-                                        <ul>
-                                            <li>
-                                                <h6>Old School</h6>
-                                                <p>2 farm fresh eggs, 2 bacon or 1 house made sausage, fresh greens</p>
-                                            </li>
-                                            <li>
-                                                <h6>Chilaquiles</h6>
-                                                <p>tortilla chips, fire roasted tomatillo salsa, 2 sunny side farm fresh eggs</p>
-                                            </li>
-                                            <li>
-                                                <h6>Pancakes</h6>
-                                                <p>seasonal toppings</p>
-                                            </li>
-                                        </ul>
-                                    </div><!-- /banner-features-inner -->
-                                </div><!-- /banner-features -->
-                            </div><!-- /banner -->
-                        </div><!-- /col-md-5 -->
-                        <div class="col-lg-5 col-md-6 col-lg-offset-2 wow fadeInRight">
-                            <div class="banner features-left">
-                                <div class="image-container">
-                                    <img src="img/gallery/gallery16.jpg" alt="Marine Food Banner">
-                                    <div class="banner-title">
-                                        <img src="img/slider-images/organic-meat.png" alt="Tasty Brunch">
-                                    </div><!-- /banner-title -->
-                                </div>
-                                <!-- <div class="banner-features">
-                                    <div class="banner-features-inner">
-                                        <div class="food-price">
-                                            <p><sup>$</sup>7<sup class="decimals">99</sup></p>
-                                        </div>
-                                        <ul>
-                                            <li>
-                                                <h6>Old School</h6>
-                                                <p>2 farm fresh eggs, 2 bacon or 1 house made sausage, fresh greens</p>
-                                            </li>
-                                            <li>
-                                                <h6>Chilaquiles</h6>
-                                                <p>tortilla chips, fire roasted tomatillo salsa, 2 sunny side farm fresh eggs</p>
-                                            </li>
-                                            <li>
-                                                <h6>Pancakes</h6>
-                                                <p>seasonal toppings</p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div> -->
-                            </div><!-- /banner -->
-                        </div><!-- /col-md-5 -->
-                    </div><!-- /row -->
-                </div><!-- /container -->
-            </section>
+            </header>        
 
             <section class="store-items">
                 <div class="container">
@@ -462,25 +265,6 @@
                     </div><!-- /row -->
                 </div><!-- /container -->
             </footer>
-
-        </div><!-- /wrapper -->
-        <!-- End wrapper -->
-
-        <script src="js/vendor/jquery-2.1.3.min.js"></script>
-        <script src="js/imagesloaded.pkgd.min.js"></script>
-        <script src="js/retina.min.js"></script>
-        <script src="js/SmoothScroll.js"></script>
-        <script src="js/owl.carousel.min.js"></script>
-        <script src="js/jquery.mixitup.min.js"></script>
-        <script src="js/jquery.stellar.min.js"></script>
-        <script src="js/jquery.nicescroll.min.js"></script>
-        <script src="js/jquery.nav.js"></script>
-        <script src="js/cd-google-map.js"></script>
-        <script src="js/wow.min.js"></script>
-        <script src="js/tweetie.min.js"></script>
-        <script src="js/jquery.scrollme.min.js"></script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
-
-    </body>
-</html>
+<?php
+    include $_SERVER['DOCUMENT_ROOT']."/footer.php";
+?>

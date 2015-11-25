@@ -574,226 +574,71 @@
                 <div class="container">
                     <div class="row">
                         <div class="menus-container wow fadeInDown">
-                            <div class="menu-carousel-nav"></div>
+                           
                             <div class="menu-carousel">
                                 <div class="menu col-md-12">
                                     <div class="row">
                                         <div class="col-md-8 col-md-offset-2">
                                             <header class="section-title">
-                                                <h1><span>Our</span> Breakfast</h1>
+                                                <h1><span>Nuestros</span> Almuerzos</h1>
                                             </header>
                                         </div><!-- /col-md-8 -->
-                                        <div class="col-md-6">
-                                            <div class="food">
-                                                <h6 class="food-name">Soft-Boiled Organic Egg</h6>
-                                                <div class="food-desc">
-                                                    <div class="food-details">
-                                                        <span>with “soldiers”</span>
-                                                    </div><!-- /food-details -->
-                                                    <div class="dots"></div>
-                                                    <div class="food-price">
-                                                        <span>5.00</span>
-                                                    </div><!-- /food-price -->
-                                                </div><!-- /food-desc -->
-                                            </div><!-- /food -->
-                                            <div class="food">
-                                                <h6 class="food-name">Eggs Any Style</h6>
-                                                <div class="food-desc">
-                                                    <div class="food-details">
-                                                        <span>with homefries &amp; toast</span>
-                                                    </div><!-- /food-details -->
-                                                    <div class="dots"></div>
-                                                    <div class="food-price">
-                                                        <span>16.00</span>
-                                                    </div><!-- /food-price -->
-                                                </div><!-- /food-desc -->
-                                            </div><!-- /food -->
-                                            <div class="food">
-                                                <h6 class="food-name">Scrambled Eggs in Puff Pastry</h6>
-                                                <div class="food-desc">
-                                                    <div class="food-details">
-                                                        <span>with wild mushrooms and asparagus</span>
-                                                    </div><!-- /food-details -->
-                                                    <div class="dots"></div>
-                                                    <div class="food-price">
-                                                        <span>22.00</span>
-                                                    </div><!-- /food-price -->
-                                                </div><!-- /food-desc -->
-                                            </div><!-- /food -->
-                                            <div class="food">
-                                                <h6 class="food-name">Eggs Benedict</h6>
-                                                <div class="food-desc">
-                                                    <div class="food-details">
-                                                        <span>with homefries</span>
-                                                    </div><!-- /food-details -->
-                                                    <div class="dots"></div>
-                                                    <div class="food-price">
-                                                        <span>22.00</span>
-                                                    </div><!-- /food-price -->
-                                                </div><!-- /food-desc -->
-                                            </div><!-- /food -->
-                                        </div><!-- /col-md-6 -->
-                                        <div class="col-md-6">
-                                            <div class="food">
-                                                <h6 class="food-name">Soft-Boiled Organic Egg</h6>
-                                                <div class="food-desc">
-                                                    <div class="food-details">
-                                                        <span>with “soldiers”</span>
-                                                    </div><!-- /food-details -->
-                                                    <div class="dots"></div>
-                                                    <div class="food-price">
-                                                        <span>5.00</span>
-                                                    </div><!-- /food-price -->
-                                                </div><!-- /food-desc -->
-                                            </div><!-- /food -->
-                                            <div class="food">
-                                                <h6 class="food-name">Eggs Any Style</h6>
-                                                <div class="food-desc">
-                                                    <div class="food-details">
-                                                        <span>with homefries &amp; toast</span>
-                                                    </div><!-- /food-details -->
-                                                    <div class="dots"></div>
-                                                    <div class="food-price">
-                                                        <span>16.00</span>
-                                                    </div><!-- /food-price -->
-                                                </div><!-- /food-desc -->
-                                            </div><!-- /food -->
-                                            <div class="food">
-                                                <h6 class="food-name">Scrambled Eggs in Puff Pastry</h6>
-                                                <div class="food-desc">
-                                                    <div class="food-details">
-                                                        <span>with wild mushrooms and asparagus</span>
-                                                    </div><!-- /food-details -->
-                                                    <div class="dots"></div>
-                                                    <div class="food-price">
-                                                        <span>22.00</span>
-                                                    </div><!-- /food-price -->
-                                                </div><!-- /food-desc -->
-                                            </div><!-- /food -->
-                                            <div class="food">
-                                                <h6 class="food-name">Eggs Benedict</h6>
-                                                <div class="food-desc">
-                                                    <div class="food-details">
-                                                        <span>with homefries</span>
-                                                    </div><!-- /food-details -->
-                                                    <div class="dots"></div>
-                                                    <div class="food-price">
-                                                        <span>22.00</span>
-                                                    </div><!-- /food-price -->
-                                                </div><!-- /food-desc -->
-                                            </div><!-- /food -->
-                                        </div><!-- /col-md-6 -->
+                                        <?php
+                                        	include $_SERVER['DOCUMENT_ROOT']."/admin/conexion.php";
+    	
+    										$diaActual= date("w");
+    										$sql="SELECT productos.id,productos.nombre,productos.descripcion,productos.precio,productos.cantidad FROM productos,dias_productos WHERE dias_productos.dia='$diaActual' AND productos.id=dias_productos.id_producto AND productos.mostrar=1";					
+											$result = mysqli_query($con,$sql);
+											if($result->num_rows==1){
+												$cantidadProducto=$result->num_rows	;
+
+											}else{
+												$cantidadProducto=($result->num_rows)/2;	
+											}
+											
+											echo '<div class="col-md-6">';
+											for ($i = 0; $i <$cantidadProducto; $i++) {
+												$result->data_seek($i);
+												$fila = $result->fetch_assoc();												
+												echo '<div class="food">';
+                                                	echo '<h6 class="food-name">'.$fila["nombre"].'</h6>';
+                                                	echo '<div class="food-desc">';
+                                                    	echo '<div class="food-details">';
+                                                        	echo '<span>'.$fila["descripcion"].'</span>';
+                                                    	echo '</div>';
+                                                    	echo '<div class="dots"></div>';
+                                                    	echo '<div class="food-price">';
+                                                        	echo '<span>$'.number_format($fila["precio"]).'</span>';
+                                                    	echo '</div>';
+                                                	echo '</div>';
+                                            	echo '</div>';																																				
+											}
+											echo '</div>';
+											echo '<div class="col-md-6">';
+											for ($i = $cantidadProducto; $i <$result->num_rows; $i++) {
+												$result->data_seek($i);
+												$fila = $result->fetch_assoc();
+												echo '<div class="food">';
+                                                	echo '<h6 class="food-name">'.$fila["nombre"].'</h6>';
+                                                	echo '<div class="food-desc">';
+                                                    	echo '<div class="food-details">';
+                                                        	echo '<span>'.$fila["descripcion"].'</span>';
+                                                    	echo '</div>';
+                                                    	echo '<div class="dots"></div>';
+                                                    	echo '<div class="food-price">';
+                                                        	echo '<span>$'.number_format($fila["precio"]).'</span>';
+                                                    	echo '</div>';
+                                                	echo '</div>';
+                                            	echo '</div>';																																					
+											}
+											echo '</div>';					
+													
+                                        ?>
+                                       
+                                        
                                     </div><!-- /row -->
                                 </div><!-- menu -->
-                                <div class="menu col-md-12">
-                                    <div class="row">
-                                        <div class="col-md-8 col-md-offset-2">
-                                            <header class="section-title">
-                                                <h1><span>Our</span> Lunch</h1>
-                                            </header>
-                                        </div><!-- /col-md-8 -->
-                                        <div class="col-md-6">
-                                            <div class="food">
-                                                <h6 class="food-name">Eggs Benedict</h6>
-                                                <div class="food-desc">
-                                                    <div class="food-details">
-                                                        <span>with homefries</span>
-                                                    </div><!-- /food-details -->
-                                                    <div class="dots"></div>
-                                                    <div class="food-price">
-                                                        <span>22.00</span>
-                                                    </div><!-- /food-price -->
-                                                </div><!-- /food-desc -->
-                                            </div><!-- /food -->
-                                            <div class="food">
-                                                <h6 class="food-name">Scrambled Eggs in Puff Pastry</h6>
-                                                <div class="food-desc">
-                                                    <div class="food-details">
-                                                        <span>with wild mushrooms and asparagus</span>
-                                                    </div><!-- /food-details -->
-                                                    <div class="dots"></div>
-                                                    <div class="food-price">
-                                                        <span>22.00</span>
-                                                    </div><!-- /food-price -->
-                                                </div><!-- /food-desc -->
-                                            </div><!-- /food -->
-                                            <div class="food">
-                                                <h6 class="food-name">Eggs Any Style</h6>
-                                                <div class="food-desc">
-                                                    <div class="food-details">
-                                                        <span>with homefries &amp; toast</span>
-                                                    </div><!-- /food-details -->
-                                                    <div class="dots"></div>
-                                                    <div class="food-price">
-                                                        <span>16.00</span>
-                                                    </div><!-- /food-price -->
-                                                </div><!-- /food-desc -->
-                                            </div><!-- /food -->
-                                            <div class="food">
-                                                <h6 class="food-name">Soft-Boiled Organic Egg</h6>
-                                                <div class="food-desc">
-                                                    <div class="food-details">
-                                                        <span>with “soldiers”</span>
-                                                    </div><!-- /food-details -->
-                                                    <div class="dots"></div>
-                                                    <div class="food-price">
-                                                        <span>5.00</span>
-                                                    </div><!-- /food-price -->
-                                                </div><!-- /food-desc -->
-                                            </div><!-- /food -->
-                                        </div><!-- /col-md-6 -->
-                                        <div class="col-md-6">
-                                            <div class="food">
-                                                <h6 class="food-name">Eggs Benedict</h6>
-                                                <div class="food-desc">
-                                                    <div class="food-details">
-                                                        <span>with homefries</span>
-                                                    </div><!-- /food-details -->
-                                                    <div class="dots"></div>
-                                                    <div class="food-price">
-                                                        <span>22.00</span>
-                                                    </div><!-- /food-price -->
-                                                </div><!-- /food-desc -->
-                                            </div><!-- /food -->
-                                            <div class="food">
-                                                <h6 class="food-name">Scrambled Eggs in Puff Pastry</h6>
-                                                <div class="food-desc">
-                                                    <div class="food-details">
-                                                        <span>with wild mushrooms and asparagus</span>
-                                                    </div><!-- /food-details -->
-                                                    <div class="dots"></div>
-                                                    <div class="food-price">
-                                                        <span>22.00</span>
-                                                    </div><!-- /food-price -->
-                                                </div><!-- /food-desc -->
-                                            </div><!-- /food -->
-                                            <div class="food">
-                                                <h6 class="food-name">Eggs Any Style</h6>
-                                                <div class="food-desc">
-                                                    <div class="food-details">
-                                                        <span>with homefries &amp; toast</span>
-                                                    </div><!-- /food-details -->
-                                                    <div class="dots"></div>
-                                                    <div class="food-price">
-                                                        <span>16.00</span>
-                                                    </div><!-- /food-price -->
-                                                </div><!-- /food-desc -->
-                                            </div><!-- /food -->
-                                            <div class="food">
-                                                <h6 class="food-name">Soft-Boiled Organic Egg</h6>
-                                                <div class="food-desc">
-                                                    <div class="food-details">
-                                                        <span>with “soldiers”</span>
-                                                    </div><!-- /food-details -->
-                                                    <div class="dots"></div>
-                                                    <div class="food-price">
-                                                        <span>5.00</span>
-                                                    </div><!-- /food-price -->
-                                                </div><!-- /food-desc -->
-                                            </div><!-- /food -->
-                                        </div><!-- /col-md-6 -->
-                                    </div><!-- /row -->
-                                </div><!-- menu -->
+                                
                             </div><!-- /menu-carousel -->
                         </div><!-- /menus-container -->
                     </div><!-- /row -->
@@ -801,7 +646,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 align-center wow fadeInUp">
-                            <a href="#" class="custom-button button-style1"><i class="icon-eye"></i>View Details</a>
+                            <a href="store.php" class="custom-button button-style1"><i class="fa fa-cutlery"></i>Realizar Pedido</a>
                         </div>
                     </div>
                 </div><!-- /col-md-12 -->

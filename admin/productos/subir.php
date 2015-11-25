@@ -9,10 +9,10 @@
 	$cantidad = $_POST["cantidad"];
 	$precio = $_POST["precio"];
 	$dias = $_POST["dias"];		 
-   
+    $categoria = $_POST["categoria"];
 
 	//$resultado = $con->query("INSERT INTO productos (nombre,descripcion,precio,cantidad) VALUES('$nombre','$descripcion','$precio', '$cantidad')");
-	$query="INSERT INTO productos (nombre,descripcion,precio,cantidad,mostrar) VALUES('$nombre','$descripcion','$precio', '$cantidad',1)";	
+	$query="INSERT INTO productos (nombre,descripcion,precio,cantidad,mostrar,Idcategoria) VALUES('$nombre','$descripcion','$precio', '$cantidad',1,'$categoria')";	
 	$con->query($query);
 	$id_producto =$con->insert_id;	
 	

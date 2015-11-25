@@ -8,6 +8,12 @@ $sesion = include $_SERVER['DOCUMENT_ROOT']."/admin/verificarSesion.php";
 
 		include $_SERVER['DOCUMENT_ROOT']."/admin/header.php";
     	include $_SERVER['DOCUMENT_ROOT']."/admin/conexion.php";
+
+    	$sqlCategorias="SELECT * FROM categorias";		
+				
+		$resultCategorias = mysqli_query($con,$sqlCategorias);
+		
+		
     ?>	
     </br>
     </br>
@@ -51,6 +57,28 @@ $sesion = include $_SERVER['DOCUMENT_ROOT']."/admin/verificarSesion.php";
 									placeholder="Cantidad de unidades para vender de la colacion" required>
 								</div>
 							</div>
+							<div class="col-sm-12">
+								<div class="form-group">
+									<label for="nombre" class="control-label">Categoria</label>
+									<select class="form-control" name="categoria" >
+										<?php
+											for ($i = 0; $i <$resultCategorias->num_rows; $i++) {			
+												$resultCategorias->data_seek($i);
+												$fila = $resultCategorias->fetch_assoc();						
+												$id=$fila["ID"];								
+												$nombre=$fila["nombre"];
+												echo "<option value='".$id."'>".$nombre."</option>";
+											}
+										?>
+									</select>
+								</div>
+							</div>
+
+
+
+
+
+
 							<div class="col-sm-12">
 								<div class="form-group">
 									<label for="nombre" class="control-label">Dias</label>

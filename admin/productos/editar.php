@@ -14,8 +14,10 @@
 
 		include $_SERVER['DOCUMENT_ROOT']."/admin/conexion.php";
 
-		$sql="SELECT * FROM productos WHERE id='$id_producto'";		
-				
+		$sql="SELECT * FROM productos WHERE id='$id_producto'";	
+
+
+	
 		$result = mysqli_query($con,$sql);
 		
 
@@ -26,9 +28,15 @@
 			$descripcion=$fila["descripcion"];
 			$cantidad=$fila["cantidad"];
 			$precio=$fila["precio"];
-			$mostrar=$fila["mostrar"];		
+			$mostrar=$fila["mostrar"];	
+			$categoria=$fila["Idcategoria"];
 			
 		}	
+
+
+
+		$sqlCategorias="SELECT * FROM categorias";						
+		$resultCategorias = mysqli_query($con,$sqlCategorias);
 
 
 		
@@ -87,6 +95,29 @@
 									placeholder="Cantidad de unidades para vender de la colacion" required value="<?php echo $cantidad; ?>">
 								</div>
 							</div>
+
+							<div class="col-sm-12">
+								<div class="form-group">
+									<label for="nombre" class="control-label">Categoria</label>
+									<select class="form-control" name="categoria" >
+										<?php
+											for ($i = 0; $i <$resultCategorias->num_rows; $i++) {			
+												$resultCategorias->data_seek($i);
+												$fila = $resultCategorias->fetch_assoc();						
+												$idCat=$fila["ID"];								
+												$nombreCat=$fila["nombre"];
+												echo "<option value='".$idCat."'";
+												if($categoria==$idCat){
+
+													echo " selected";
+												}
+												echo">".$nombreCat."</option>";
+											}
+										?>
+									</select>
+								</div>
+							</div>
+
 							<div class="col-sm-12">
 								<div class="form-group">
 									<label for="nombre" class="control-label">Dias</label>
