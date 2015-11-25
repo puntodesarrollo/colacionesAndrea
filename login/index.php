@@ -8,15 +8,20 @@
     <meta name="google-signin-client_id" content="1014154852560-1m65dufsnfoahaagpb9keavo8bufjlco.apps.googleusercontent.com">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <!-- Bootstrap core CSS -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <script src="/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   </head>
   <body>
 
-    <div class="col-sm-6 col-sm-offset-3 hidden" id="info">
+    <div class="col-sm-6 col-sm-offset-3 hidden text-center" id="info">
       <br>
-      <label id="nombre" class="text-center"></label>
+      <label id="nombre"></label>
       <br>
       <label id="correo"></label>
       <br>
