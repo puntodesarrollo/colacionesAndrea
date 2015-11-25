@@ -7,6 +7,7 @@
 	$cantidad = $_GET["cantidad"];	
 	$fechaActual = date("Y-m-d G:i:s");	
 	$idUsuario=$_SESSION["ID"];
+	$ipUsuario = $_SERVER["REMOTE_ADDR"];
 
 	$select="SELECT * FROM compras WHERE IDusuario='$idUsuario' AND IDproducto='$idProducto'";
 	$result = mysqli_query($con,$select);
@@ -25,7 +26,7 @@
 
 	}else{
 
-		$query="INSERT INTO compras (IDusuario,IDproducto,cantidad,fecha) VALUES('$idUsuario','$idProducto','$cantidad', '$fechaActual')";		
+		$query="INSERT INTO compras (IDusuario,IDproducto,cantidad,fecha,ipUsuario) VALUES('$idUsuario','$idProducto','$cantidad', '$fechaActual','$ipUsuario')";		
 		$con->query($query);
 	}												
 	
