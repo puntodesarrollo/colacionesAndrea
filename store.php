@@ -1,5 +1,13 @@
 <?php
     include $_SERVER['DOCUMENT_ROOT']."/header.php";
+
+    include $_SERVER['DOCUMENT_ROOT']."/admin/conexion.php";
+
+    $sqlCategorias="SELECT * FROM categorias";      
+                
+    $resultCategorias = mysqli_query($con,$sqlCategorias);
+
+
 ?>
             <header class="main-header" id="top">
                 <?php
@@ -20,146 +28,74 @@
                             <div class="row">
                                 <div class="col-md-9">
                                     <ul class="category-filter store-category-filter">
-                                        <li class="filter active" data-filter="all"><span>All Products</span></li>
-                                        <li class="filter" data-filter=".main"><span>Mains</span></li>
-                                        <li class="filter" data-filter=".salad"><span>Salads</span></li>
-                                        <li class="filter" data-filter=".starter"><span>Starters</span></li>
+                                        <li class="filter active" data-filter="all"><span>Todos</span></li>
+                                        <?php
+                                            for ($i = 0; $i <$resultCategorias->num_rows; $i++) {           
+                                                $resultCategorias->data_seek($i);
+                                                $fila = $resultCategorias->fetch_assoc();                       
+                                                $idCat=$fila["ID"];                                
+                                                $nombreCat=$fila["nombre"];
+                                                echo "<li class='filter' data-filter='.".$nombreCat."'><span>".$nombreCat."</span></li>";        
+                                            }
+                                        ?>
+
                                     </ul>
+                                    <br>
                                 </div><!-- col-md-9 -->
-                                <div class="col-md-3">
-                                    <form action="#" class="search-form">
-                                        <input type="search" name="search" id="search" placeholder="Search Store">
-                                        <button type="submit"><i class="fa fa-search"></i></button>
-                                    </form>
-                                </div><!-- /col-md-3 -->
+                              
                             </div><!-- /row -->
                         </div><!-- /container -->
                     </div><!-- /header-bottom-bar -->
                 </div><!-- /top-banner-container -->
             </header>        
 
+            <?php
+
+                $diaActual= date("w");
+
+                $sqlSelect="SELECT productos.id,productos.nombre,productos.descripcion,productos.precio,productos.cantidad,categorias.nombre AS nombreCategoria FROM productos,dias_productos,categorias WHERE dias_productos.dia='$diaActual' AND productos.id=dias_productos.id_producto AND productos.mostrar=1 AND categorias.ID=productos.Idcategoria";                  
+                $resultSelect = mysqli_query($con,$sqlSelect);      
+
+            ?>
+
             <section class="store-items">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-4 col-sm-6 col-xs-12 mix main">
-                            <div class="store-item wow fadeInDown">
-                                <figure>
-                                    <a href="store-item.html">
-                                        <img src="img/gallery/gallery18.jpg" alt="Marine Food Store">
-                                    </a>
-                                </figure>
-                                <h3 class="food-name"><a href="store-item.html">Spicy Baked Eggs</a></h3>
-                                <ul class="food-category">
-                                    <li>Local</li>
-                                    <li>Greens</li>
-                                    <li>Eggs</li>
-                                </ul>
-                                <div class="food-order">
-                                    <p class="food-price">$19.99</p>
-                                    <a href="#" class="add-to-cart-link">Add To Cart</a>
-                                </div><!-- /food-order -->
-                            </div><!-- /store-item -->
-                        </div><!-- /col-md-4 -->
-                        <div class="col-md-4 col-sm-6 col-xs-12 mix starter">
-                            <div class="store-item wow fadeInDown" data-wow-delay="0.2s">
-                                <figure>
-                                    <a href="store-item.html">
-                                        <img src="img/gallery/gallery19.jpg" alt="Marine Food Store">
-                                    </a>
-                                </figure>
-                                <h3 class="food-name"><a href="store-item.html">Grilled Meat with Fruits</a></h3>
-                                <ul class="food-category">
-                                    <li>Local</li>
-                                    <li>Fruits</li>
-                                    <li>Meat</li>
-                                </ul>
-                                <div class="food-order">
-                                    <p class="food-price">$34.95</p>
-                                    <a href="#" class="add-to-cart-link">Add To Cart</a>
-                                </div><!-- /food-order -->
-                            </div><!-- /store-item -->
-                        </div><!-- /col-md-4 -->
-                        <div class="col-md-4 col-sm-6 col-xs-12 mix salad">
-                            <div class="store-item wow fadeInDown" data-wow-delay="0.4s">
-                                <figure>
-                                    <a href="store-item.html">
-                                        <img src="img/gallery/gallery20.jpg" alt="Marine Food Store">
-                                    </a>
-                                </figure>
-                                <h3 class="food-name"><a href="store-item.html">Black Pasta with Meat</a></h3>
-                                <ul class="food-category">
-                                    <li>Italian</li>
-                                    <li>Pasta</li>
-                                    <li>Meat</li>
-                                </ul>
-                                <div class="food-order">
-                                    <p class="food-price">$27.99</p>
-                                    <a href="#" class="add-to-cart-link">Add To Cart</a>
-                                </div><!-- /food-order -->
-                            </div><!-- /store-item -->
-                        </div><!-- /col-md-4 -->
-                        <div class="col-md-4 col-sm-6 col-xs-12 mix starter">
-                            <div class="store-item wow fadeInDown">
-                                <figure>
-                                    <a href="store-item.html">
-                                        <img src="img/gallery/gallery23.jpg" alt="Marine Food Store">
-                                    </a>
-                                </figure>
-                                <h3 class="food-name"><a href="store-item.html">Chips with Sour Cream </a></h3>
-                                <ul class="food-category">
-                                    <li>Local</li>
-                                    <li>Greens</li>
-                                    <li>Chips</li>
-                                </ul>
-                                <div class="food-order">
-                                    <p class="food-price">$13.99</p>
-                                    <a href="#" class="add-to-cart-link">Add To Cart</a>
-                                </div><!-- /food-order -->
-                            </div><!-- /store-item -->
-                        </div><!-- /col-md-4 -->
-                        <div class="col-md-4 col-sm-6 col-xs-12 mix main">
-                            <div class="store-item wow fadeInDown" data-wow-delay="0.2s">
-                                <figure>
-                                    <a href="store-item.html">
-                                        <img src="img/gallery/gallery22.jpg" alt="Marine Food Store">
-                                    </a>
-                                </figure>
-                                <h3 class="food-name"><a href="store-item.html">Taco with Meat &amp; Avocado</a></h3>
-                                <ul class="food-category">
-                                    <li>mexican</li>
-                                    <li>fruits</li>
-                                    <li>meat</li>
-                                    <li>taco</li>
-                                </ul>
-                                <div class="food-order">
-                                    <p class="food-price">$11.89</p>
-                                    <a href="#" class="add-to-cart-link">Add To Cart</a>
-                                </div><!-- /food-order -->
-                            </div><!-- /store-item -->
-                        </div><!-- /col-md-4 -->
-                        <div class="col-md-4 col-sm-6 col-xs-12 mix salad starter">
-                            <div class="store-item wow fadeInDown" data-wow-delay="0.4s">
-                                <figure>
-                                    <a href="store-item.html">
-                                        <img src="img/gallery/gallery21.jpg" alt="Marine Food Store">
-                                    </a>
-                                </figure>
-                                <h3 class="food-name"><a href="store-item.html">Spring Fruit Salad</a></h3>
-                                <ul class="food-category">
-                                    <li>Spanish</li>
-                                    <li>Fruits</li>
-                                    <li>Salad</li>
-                                </ul>
-                                <div class="food-order">
-                                    <p class="food-price">$24.95</p>
-                                    <a href="#" class="add-to-cart-link">Add To Cart</a>
-                                </div><!-- /food-order -->
-                            </div><!-- /store-item -->
-                        </div><!-- /col-md-4 -->
-                    </div><!-- /row -->
-                    <div class="load-more align-center wow fadeInUp">
-                        <a href="#" class="custom-button button-style2 load-more-button"><i class="icon-eye"></i>Load More</a>
-                    </div><!-- /load-more -->
+                    <?php                                                                   
+                    
+                       for ($i = 0; $i <$resultSelect->num_rows; $i++) {
+                            $resultSelect->data_seek($i);
+                            $fila = $resultSelect->fetch_assoc();
+
+                            $IDproducto=$fila["id"];
+                            $nombreProd=$fila["nombre"];
+                            $precio=$fila["precio"];
+                            $descripcion=$fila["descripcion"];
+
+                            $categoria=$fila["nombreCategoria"];
+
+                            //include '../obtenerDatosProducto.php';                          
+                            //$stock=$cantidadDisponible; 
+                            echo '<div class="col-md-4 col-sm-6 col-xs-12 mix '.$categoria.'">';
+                                echo '<div class="store-item wow fadeInDown">';
+                                    echo '<figure>';
+                                        echo '<a href="store-item.html">';
+                                            echo '<img src="img/gallery/gallery18.jpg" alt="'.$nombreProd.'">';
+                                        echo '</a>';
+                                    echo '</figure>';
+                                    echo '<h3 class="food-name"><a href="store-item.html">'.$nombreProd.'</a></h3>';
+                                    echo '<ul class="food-category">';
+                                        echo '<li>'.$descripcion.'</li>';
+                                    echo '</ul>';
+                                    echo '<div class="food-order">';
+                                        echo '<p class="food-price">$'.number_format($precio).'</p>';
+                                        echo '<a href="#" class="add-to-cart-link">Agregar al Pedido</a>';
+                                    echo '</div>';
+                                echo '</div>';
+                            echo '</div>';                            
+                        }                   
+                    ?>            
+                    </div><!-- /row -->                    
                 </div><!-- /container -->
             </section>
 
