@@ -93,6 +93,24 @@
 		</div>
 	</div>
 
+
+	<div class="row">
+		<h3>Precio:</h3>
+		<div class="col-md-6">
+			<?php $precio= include $_SERVER['DOCUMENT_ROOT']."/login/obtenerPrecioPedido.php";?>                                
+            <label class="col-md-12"><b>El precio del plato es de $<?php echo number_format($precio);?></b></label>	
+		</div>
+		<div class="col-md-6">
+			<div class="modal-footer">
+				<a href="modificarPrecio.php" class="btn btn-primary"><span class="glyphicon glyphicon-usd"></span>&nbsp;Modificar</a>
+			</div>
+		</div>
+		
+	</div>
+
+
+
+
 	<!-- Modal -->
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
