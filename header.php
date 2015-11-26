@@ -67,12 +67,11 @@
                 </div><!-- /logo-container -->
                 <nav class="main-nav">
                     <ul>
-                        <li class="active"><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="store.html">Store</a></li>
-                        <li><a href="menu.html">Menu</a></li>
-                        <li><a href="reservation.html">Reservation</a></li>
+                        <li class="active"><a href="index.php">Inicio</a></li>
+                        <li><a href="about.php">Quiénes Somos</a></li>
+                        <li><a href="blog.php">Blog</a></li>
+                        <li><a href="store.php">Colaciones</a></li>
+                        <li><a href="armatupedido.php">Arma tu Pedido</a></li>
                     </ul>
                 </nav>
                 <div class="tweets-container">

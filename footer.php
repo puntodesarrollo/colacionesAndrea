@@ -1,5 +1,7 @@
-<section class="map">
-                <div class="map-container wow fadeInDown">
+            <section class="map" >
+                <iframe src="https://mapsengine.google.com/map/u/0/embed?mid=ziDg0mefAhTM.kNDHElct8Kcc" width="100%" height="480"></iframe>
+
+                <div class="map-container wow fadeInDown hidden">
                     <div id="google-map"></div>
                     <div id="cd-zoom-in"></div>
                     <div id="cd-zoom-out"></div>
@@ -112,20 +114,30 @@
 
             function actualizarCarro()
                {
-
+                    console.log("aqui");
                     $.get( "/login/obtenerCarro.php" )
                     .done(function(data) {
 
-                        var obj = jQuery.parseJSON(data);                        
-                        $("#totalCarro").html(obj.length);
-                        $("#totalCarroIcono").html(obj.length);
+                        var obj = jQuery.parseJSON(data);
+
+                        cantidad = 0;
 
                         $("#detalleCarro").html("");
                         for(i=0;i<obj.length;i++)
                         {
                             var total=parseInt(obj[i].cantidadComprar)*parseInt(obj[i].precioProducto);
                             $("#detalleCarro").append('<li><div class="item-container clearfix"><figure><img src="img/gallery/gallery20.jpg" alt="'+ obj[i].nombreProducto +'"></figure><p class="food-name"><a href="#">'+ obj[i].cantidadComprar + ' x ' + obj[i].nombreProducto +'</a></p><p class="food-price">$'+ total +'</p></div></li>');
+
+                            cantidad += parseInt(obj[i].cantidadComprar);
                         }
+
+
+                        $("#totalCarro").html(cantidad);
+                        $("#totalCarroIcono").html(cantidad);
+
+                        $('html, body').animate({
+                            scrollTop: $("#totalCarroIcono").offset().top
+                        }, 1000);
                     });
                }
         </script>
