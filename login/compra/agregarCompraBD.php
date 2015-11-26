@@ -10,10 +10,15 @@
 		$cantidad=1;
 	}	
 	$fechaActual = date("Y-m-d G:i:s");	
-	$idUsuario=$_SESSION["ID"];
+	//if(isset($_SESSION["ID"]){
+		$idUsuario=$_SESSION["ID"];	
+	//}else{
+	//	$idUsuario='';
+	//}
+	
 	$ipUsuario = $_SERVER["REMOTE_ADDR"];
 
-	$select="SELECT * FROM compras WHERE IDusuario='$idUsuario' AND IDproducto='$idProducto'";
+	$select="SELECT * FROM compras WHERE ipUsuario='$ipUsuario' AND IDproducto='$idProducto'";
 	$result = mysqli_query($con,$select);
 
 	$cantidadSelect=$result->num_rows;
@@ -26,7 +31,7 @@
 	}
 	if($cantidadSelect>0){
 		$total=$cantidadProductoActual+$cantidad;
-		$resultado = $con->query("UPDATE compras set cantidad='$total' WHERE IDusuario='$idUsuario' AND IDproducto='$idProducto'");
+		$resultado = $con->query("UPDATE compras set cantidad='$total' WHERE ipUsuario='$ipUsuario' AND IDproducto='$idProducto'");
 
 	}else{
 
