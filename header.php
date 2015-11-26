@@ -71,7 +71,7 @@
                         <li><a href="about.php">Quiénes Somos</a></li>
                         <li><a href="blog.php">Blog</a></li>
                         <li><a href="store.php">Colaciones</a></li>
-                        <li><a href="armatupedido.php">Arma tu Pedido</a></li>
+                        <li><a href="creaTuPlato.php">Arma tu Pedido</a></li>
                     </ul>
                 </nav>
                 <div class="tweets-container">
@@ -97,3 +97,9 @@
 
         <!-- Start wrapper -->
         <div class="wrapper">
+
+<?php
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+?>

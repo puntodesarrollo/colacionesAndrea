@@ -63,7 +63,6 @@
                             </thead>
                             <tbody>
                                 <?php
-                                    session_start();
                                     $IDusuario=$_SESSION['ID'];
 
                                     $conexion = include $_SERVER['DOCUMENT_ROOT']."/admin/crearConexion.php";
@@ -92,18 +91,6 @@
 
                                         if($cantidadComprar>0)
                                         {
-                                            /*
-                                            echo '<tr>
-                                                <td>'. $nombreProducto .'</td>
-                                                <td>'. $cantidadComprar .'</td>
-                                                <td>'. $cantidadDisponible .'</td>
-                                                <td>'. $precioProducto .'</td>
-                                                <td>'. ($precioProducto * $cantidadComprar) .'</td>
-                                                <td><a href="aumentar.php?ID='. $ID .'" class="btn btn-primary">Aumentar</a></td>
-                                                <td><a href="disminuir.php?ID='. $ID .'" class="btn btn-primary">Disminuir</a></td>
-                                                <td><a href="eliminar.php?ID='. $ID .'" class="btn btn-primary">Eliminar</a></td>
-                                            </tr>';
-                                            //*/
                                             echo '<tr>
                                                     <td class="item-thumb">
                                                         <figure>
@@ -120,11 +107,49 @@
                                                     <td><strong>'. $cantidadDisponible .'</strong></td>
                                                     <td><strong>'. ($precioProducto * $cantidadComprar) .'</strong></td>
                                                     <td class="remove-item">
-                                                        <a href="eliminar.php?ID='. $ID .'" class="remove-items-link"><i class="fa fa-times-circle"></i></a>
+                                                        <a href="/login/eliminar.php?ID='. $ID .'" class="remove-items-link"><i class="fa fa-times-circle"></i></a>
                                                     </td>
                                                 </tr>';
                                         }
                                         $totalCompra+=($precioProducto * $cantidadComprar);     
+                                    }
+
+                                    $conexion = include $_SERVER['DOCUMENT_ROOT']."/admin/crearConexion.php";
+
+                                    $sql="SELECT * FROM comprasarmapedido WHERE IDusuario='$IDusuario'";
+                        
+                                    $resultado = mysqli_query($conexion,$sql);
+
+                                    $precioArmaPedido = include $_SERVER['DOCUMENT_ROOT']."/login/obtenerPrecioPedido.php";
+
+                                    for ($i = 0; $i <$resultado->num_rows; $i++) 
+                                    {
+                                        $resultado->data_seek($i);
+                                        $filaActual = $resultado->fetch_assoc();
+                                        $ID = $filaActual["ID"];
+                                        $base = $filaActual["base"];
+                                        $acompanamiento = $filaActual["acompanamiento"];
+                                        $cantidad = $filaActual["cantidad"];
+                                        
+
+                                        echo '<tr>
+                                                <td class="item-thumb">
+                                                    <figure>
+                                                        <img src="img/gallery/gallery18.jpg" alt="Marine Food">
+                                                    </figure>
+                                                </td>
+                                                <td class="item-desc">'. $base . ' + ' . $acompanamiento . '</td>
+                                                <td><strong>$'. $precioArmaPedido .'</strong></td>
+                                                <td>
+                                                    <input type="text" class="cart-item-count" readonly value="' . $cantidad . '">                                                        
+                                                </td>
+                                                <td><strong>-</strong></td>
+                                                <td><strong>'. ($precioArmaPedido * $cantidad) .'</strong></td>
+                                                <td class="remove-item">
+                                                    <a href="/login/eliminarPedido.php?ID='. $ID .'" class="remove-items-link"><i class="fa fa-times-circle"></i></a>
+                                                </td>
+                                            </tr>';
+                                        $totalCompra+=($precioArmaPedido * $cantidad);//*/
                                     }
 
                                     mysqli_close($conexion);

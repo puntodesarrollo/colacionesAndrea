@@ -15,6 +15,9 @@
 		$IDusuario = '';
 	}
 
+	//Se eliminan las compras antiguas:
+	include $_SERVER['DOCUMENT_ROOT']."/login/eliminarAntiguasCarro.php";
+
 	
 	$ipUsuario = $_SERVER["REMOTE_ADDR"];
 
@@ -48,9 +51,32 @@
 		{
 			$array = array('ID' => $ID, 'iIDproducto' => $IDproducto, 'nombreProducto' => $nombreProducto, 'cantidadComprar' => $cantidadComprar, 'precioProducto' => $precioProducto);
 			array_push($arr,$array);
-		}			
-		$totalCompra+=($precioProducto * $cantidadComprar);		
+		}
 	}
+
+	$conexion = include $_SERVER['DOCUMENT_ROOT']."/admin/crearConexion.php";
+
+    $sql="SELECT * FROM comprasarmapedido WHERE IDusuario='$IDusuario'";
+
+    $resultado = mysqli_query($conexion,$sql);
+
+    $precioArmaPedido = include $_SERVER['DOCUMENT_ROOT']."/login/obtenerPrecioPedido.php";
+
+    for ($i = 0; $i <$resultado->num_rows; $i++) 
+    {
+        $resultado->data_seek($i);
+        $filaActual = $resultado->fetch_assoc();
+        $ID = $filaActual["ID"];
+        $base = $filaActual["base"];
+        $acompanamiento = $filaActual["acompanamiento"];
+        $cantidad = $filaActual["cantidad"];
+
+        $nombreProducto = $base . ' + ' . $acompanamiento;
+        
+        $array = array('ID' => $ID, 'iIDproducto' => "armaPedido", 'nombreProducto' => $nombreProducto , 'cantidadComprar' => $cantidad, 'precioProducto' => $precioArmaPedido);
+		array_push($arr,$array);
+    }
+
 	//mysqli_close($conexion);
 	echo json_encode($arr);
 ?>

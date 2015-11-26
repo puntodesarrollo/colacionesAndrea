@@ -6,7 +6,9 @@
 
 	$unResultado = mysqli_query($algunaConexion,$sentenciaSql);
 
-	mysqli_close($algunaConexion);
-	
+	$sentenciaSql="DELETE FROM comprasarmapedido WHERE fecha<(NOW() - INTERVAL 240 MINUTE)";
 
+	$unResultado = mysqli_query($algunaConexion,$sentenciaSql);
+
+	mysqli_close($algunaConexion);
 ?>
