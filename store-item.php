@@ -111,31 +111,33 @@
             <section class="clients white-rock-bg">
                 <div class="container">
                     <div class="clients-carousel grayscale-image row">
-                        <div class="client-logo-container wow fadeInUp">
-                            <figure class="client-logo">
-                                <img src="img/clients/client1.png" alt="Marine Food Clients">
-                            </figure>
-                        </div><!-- /client-logo-container -->
-                        <div class="client-logo-container wow fadeInUp" data-wow-delay="0.2s">
-                            <figure class="client-logo">
-                                <img src="img/clients/client2.png" alt="Marine Food Clients">
-                            </figure>
-                        </div><!-- /client-logo-container -->
-                        <div class="client-logo-container wow fadeInUp" data-wow-delay="0.4s">
-                            <figure class="client-logo">
-                                <img src="img/clients/client3.png" alt="Marine Food Clients">
-                            </figure>
-                        </div><!-- /client-logo-container -->
-                        <div class="client-logo-container wow fadeInUp" data-wow-delay="0.6s">
-                            <figure class="client-logo">
-                                <img src="img/clients/client4.png" alt="Marine Food Clients">
-                            </figure>
-                        </div><!-- /client-logo-container -->
-                        <div class="client-logo-container wow fadeInUp" data-wow-delay="0.8s">
-                            <figure class="client-logo">
-                                <img src="img/clients/client5.png" alt="Marine Food Clients">
-                            </figure>
-                        </div><!-- /client-logo-container -->
+                     <?php
+                        $sqlFotosPiePagina="SELECT * FROM fotos_productos";      
+                
+                        $resultFotosPiePagina = mysqli_query($con,$sqlFotosPiePagina);
+                        $delay=0.2;
+                        for ($x = 0; $x <$resultFotosPiePagina->num_rows; $x++) {
+
+                            $resultFotosPiePagina->data_seek($x);
+                            $resultadoImagenes = $resultFotosPiePagina->fetch_assoc();   
+                            $ruta='admin/productos/'.$resultadoImagenes["ruta_foto"];
+                            if($x==0){
+                                echo '<div class="client-logo-container wow fadeInUp">';
+                                    echo '<figure class="client-logo">';
+                                        echo '<img src="'.$ruta.'" alt="Marine Food Clients" height="106px">';
+                                    echo '</figure>';
+                                echo '</div>';
+                            }else{
+                                echo '<div class="client-logo-container wow fadeInUp" data-wow-delay="'.$delay.'s">';
+                                    echo '<figure class="client-logo">';
+                                        echo '<img src="'.$ruta.'" alt="Marine Food Clients" height="106px">';
+                                    echo '</figure>';
+                                echo '</div>';
+                                $delay=$delay+0.2;    
+                            }
+                             
+                         }                        
+                     ?>                                         
                     </div><!-- /row -->
                 </div><!-- /contianer -->
             </section>
