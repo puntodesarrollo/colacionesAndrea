@@ -5,7 +5,7 @@
 
 	$idProducto = $_GET["idProducto"];	
 	$cantidad = $_GET["cantidad"];
-	if($cantidad==""){
+	if(empty($_GET["cantidad"])){
 
 		$cantidad=1;
 	}	

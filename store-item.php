@@ -82,15 +82,28 @@
                             <div class="store-item store-item-detail row">
                                 <div class="col-md-6 wow fadeInLeft">
                                     <div class="item-slideshow">
+                                        <?php
+                                            include $_SERVER['DOCUMENT_ROOT']."/login/productos/obtenerImagenes.php";
+
+                                            if(empty($arrayImagenes)){
+
+                                                array_push($arrayImagenes,"img/gallery/gallery24.jpg");
+                                            }
+                                           
+                                        ?>
                                         <div class="main-image">
-                                            <figure><img src="img/gallery/gallery24.jpg" alt="Marine Food"></figure>
-                                            <figure><img src="img/gallery/gallery28.jpg" alt="Marine Food"></figure>
-                                            <figure><img src="img/gallery/gallery29.jpg" alt="Marine Food"></figure>
+                                            <?php
+                                                foreach ($arrayImagenes as $imagen) {
+                                                    echo '<figure><img src="'.$imagen.'" alt="Marine Food"></figure>';        
+                                                }
+                                            ?>                                           
                                         </div><!-- /main-image -->
                                         <div class="thumbnails">
-                                            <figure><img src="img/gallery/gallery25.jpg" alt="Marine Food"></figure>
-                                            <figure><img src="img/gallery/gallery26.jpg" alt="Marine Food"></figure>
-                                            <figure><img src="img/gallery/gallery27.jpg" alt="Marine Food"></figure>
+                                             <?php
+                                                foreach ($arrayImagenes as $imagen) {
+                                                    echo '<figure><img src="'.$imagen.'" alt="Marine Food"></figure>';        
+                                                } 
+                                            ?>                                              
                                         </div><!-- /thumbnails -->
                                     </div><!-- /item-slideshow -->
                                 </div><!-- /col-md-6 -->
@@ -227,7 +240,7 @@
             $.ajax({
                 url: "/login/compra/agregarCompraBD.php", data: { "idProducto": id ,"cantidad":cantidad},
                 success: function (retorno) {                  
-                    //$("#divCarro").append(texto);
+                    actualizarCarro();
                     
                 }
             });

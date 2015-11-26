@@ -104,8 +104,13 @@
                     parallax: 'scroll',
                     parallaxLevels:[100,-80]
                 });                
+               
+               actualizarCarro();
 
-               function actualizarCarro()
+            });
+
+
+            function actualizarCarro()
                {
                     $.get( "/login/obtenerCarro.php" )
                     .done(function( data ) {
@@ -117,13 +122,11 @@
                         $("#detalleCarro").html("");
                         for(i=0;i<obj.length;i++)
                         {
-                            $("#detalleCarro").append('<li><div class="item-container clearfix"><figure><img src="img/gallery/gallery20.jpg" alt="'+ obj[i].nombreProducto +'"></figure><p class="food-name"><a href="#">'+ obj[i].cantidadComprar + ' x ' + obj[i].nombreProducto +'</a></p><p class="food-price">$'+ obj[i].precioProducto +'</p></div></li>');
+                            var total=parseInt(obj[i].cantidadComprar)*parseInt(obj[i].precioProducto);
+                            $("#detalleCarro").append('<li><div class="item-container clearfix"><figure><img src="img/gallery/gallery20.jpg" alt="'+ obj[i].nombreProducto +'"></figure><p class="food-name"><a href="#">'+ obj[i].cantidadComprar + ' x ' + obj[i].nombreProducto +'</a></p><p class="food-price">$'+ total +'</p></div></li>');
                         }
                     });
                }
-
-               actualizarCarro();
-            });
         </script>
 
     </body>

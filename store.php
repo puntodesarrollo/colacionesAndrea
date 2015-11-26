@@ -62,25 +62,32 @@
                 <div class="container">
                     <div class="row">
                     <?php                                                                   
-                    
-                       for ($i = 0; $i <$resultSelect->num_rows; $i++) {
-                            $resultSelect->data_seek($i);
-                            $fila = $resultSelect->fetch_assoc();
+                   
+                       for ($x = 0; $x <$resultSelect->num_rows; $x++) {
 
-                            $IDproducto=$fila["id"];
-                            $nombreProd=$fila["nombre"];
-                            $precio=$fila["precio"];
-                            $descripcion=$fila["descripcion"];
+                            $resultSelect->data_seek($x);
+                            $filaResult = $resultSelect->fetch_assoc();
 
-                            $categoria=$fila["nombreCategoria"];
+                            $id_producto=$filaResult["id"];
+                            $nombreProd=$filaResult["nombre"];
+                            $precio=$filaResult["precio"];
+                            $descripcion=$filaResult["descripcion"];
 
-                            //include '../obtenerDatosProducto.php';                          
-                            //$stock=$cantidadDisponible; 
+                            $categoria=$filaResult["nombreCategoria"];
+
+                            include $_SERVER['DOCUMENT_ROOT']."/login/productos/obtenerImagenes.php";                                
+                            if(empty($arrayImagenes)){
+
+                                $rutaImagen="img/gallery/gallery18.jpg";
+                            }else{
+                                $rutaImagen=$arrayImagenes[0];
+                            }
+                            
                             echo '<div class="col-md-4 col-sm-6 col-xs-12 mix '.$categoria.'">';
                                 echo '<div class="store-item wow fadeInDown">';
                                     echo '<figure>';
-                                        echo '<a href="store-item.php?p='.$IDproducto.'">';
-                                            echo '<img src="img/gallery/gallery18.jpg" alt="'.$nombreProd.'">';
+                                        echo '<a href="store-item.php?p='.$id_producto.'">';
+                                            echo '<img src="'.$rutaImagen.'" alt="'.$nombreProd.'">';
                                         echo '</a>';
                                     echo '</figure>';
                                     echo '<h3 class="food-name"><a href="store-item.html">'.$nombreProd.'</a></h3>';
@@ -89,10 +96,11 @@
                                     echo '</ul>';
                                     echo '<div class="food-order">';
                                         echo '<p class="food-price">$'.number_format($precio).'</p>';
-                                        echo '<a href="" class="add-to-cart-link" onclick="return funcionAgregar(\''.$fila["id"].'\')">Agregar al Pedido</a>';
+                                        echo '<a href="" class="add-to-cart-link" onclick="return funcionAgregar(\''.$id_producto.'\')">Agregar al Pedido</a>';
                                     echo '</div>';
                                 echo '</div>';
-                            echo '</div>';                            
+                            echo '</div>';    
+
                         }                   
                     ?>            
                     </div><!-- /row -->                    
@@ -208,8 +216,9 @@
        
             $.ajax({
                 url: "/login/compra/agregarCompraBD.php", data: { "idProducto": id },
-                success: function (retorno) {                  
-                    //$("#divCarro").append(texto);
+                success: function (retorno) {  
+
+                    actualizarCarro();
                     
                 }
             });
