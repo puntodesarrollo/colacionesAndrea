@@ -7,7 +7,15 @@
 	$retorno="-1";
 
 	session_start();
-	$IDusuario = $_SESSION['ID'];
+
+	if(isset($_SESSION['ID'])){
+
+		$IDusuario = $_SESSION['ID'];
+	}else{
+		$IDusuario = '';
+	}
+
+	
 	$ipUsuario = $_SERVER["REMOTE_ADDR"];
 
 	$conexion = include $_SERVER['DOCUMENT_ROOT']."/admin/crearConexion.php";

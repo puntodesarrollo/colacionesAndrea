@@ -112,10 +112,11 @@
 
             function actualizarCarro()
                {
-                    $.get( "/login/obtenerCarro.php" )
-                    .done(function( data ) {
-                        var obj = jQuery.parseJSON(data);
 
+                    $.get( "/login/obtenerCarro.php" )
+                    .done(function(data) {
+
+                        var obj = jQuery.parseJSON(data);                        
                         $("#totalCarro").html(obj.length);
                         $("#totalCarroIcono").html(obj.length);
 
