@@ -40,7 +40,37 @@
 		mysqli_query($conInsert,$sqlInsert);
 	}
 
+	$conexion = include $_SERVER['DOCUMENT_ROOT']."/admin/crearConexion.php";
+
+    $sql="SELECT * FROM comprasarmapedido WHERE IDusuario='$IDusuario'";
+
+    $resultado = mysqli_query($conexion,$sql);
+
+    $precioArmaPedido = include $_SERVER['DOCUMENT_ROOT']."/login/obtenerPrecioPedido.php";
+
+    for ($i = 0; $i <$resultado->num_rows; $i++) 
+    {
+        $resultado->data_seek($i);
+        $filaActual = $resultado->fetch_assoc();
+        $ID = $filaActual["ID"];
+        $base = $filaActual["base"];
+        $acompanamiento = $filaActual["acompanamiento"];
+        $cantidad = $filaActual["cantidad"];
+
+        $nombreProducto = $base . ' + ' . $acompanamiento;
+        
+        $conInsert = include $_SERVER['DOCUMENT_ROOT']."/admin/crearConexion.php";
+
+		$sqlInsert="INSERT INTO pedidoarmapedido(IDUsuario, base, acompanamiento, precio, cantidad, fecha, IDpedido) VALUES('$IDusuario','$base','$acompanamiento','$precioArmaPedido', '$cantidad', now(), '$IDpedido')";
+
+		mysqli_query($conInsert,$sqlInsert);
+    }	
+
 	$sql="DELETE FROM compras WHERE IDusuario='$IDusuario'";
+
+	$resultado = mysqli_query($conexion,$sql);
+
+	$sql="DELETE FROM comprasarmapedido WHERE IDusuario='$IDusuario'";
 
 	$resultado = mysqli_query($conexion,$sql);
 

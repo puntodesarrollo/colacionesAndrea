@@ -107,18 +107,20 @@
                     parallaxLevels:[100,-80]
                 });                
                
-               actualizarCarro();
+               actualizarCarroInicio();
 
             });
 
-
-            function actualizarCarro()
-               {
-                    console.log("aqui");
+            function actualizarCarroInicio()
+            {
                     $.get( "/login/obtenerCarro.php" )
                     .done(function(data) {
 
+                        console.log(data);
+
                         var obj = jQuery.parseJSON(data);
+
+                        console.log("aqui");
 
                         cantidad = 0;
 
@@ -126,7 +128,53 @@
                         for(i=0;i<obj.length;i++)
                         {
                             var total=parseInt(obj[i].cantidadComprar)*parseInt(obj[i].precioProducto);
-                            $("#detalleCarro").append('<li><div class="item-container clearfix"><figure><img src="img/gallery/gallery20.jpg" alt="'+ obj[i].nombreProducto +'"></figure><p class="food-name"><a href="#">'+ obj[i].cantidadComprar + ' x ' + obj[i].nombreProducto +'</a></p><p class="food-price">$'+ total +'</p></div></li>');
+
+                            if(obj[i].imagen!="")
+                            {
+                                $("#detalleCarro").append('<li><div class="item-container clearfix"><figure><img src="' + obj[i].imagen + '" alt="'+ obj[i].nombreProducto +'"></figure><p class="food-name"><a href="#">'+ obj[i].cantidadComprar + ' x ' + obj[i].nombreProducto +'</a></p><p class="food-price">$'+ total +'</p></div></li>');
+                            }
+                            else
+                            {
+                                $("#detalleCarro").append('<li><div class="item-container clearfix"><figure><img src="img/gallery/gallery20.jpg" alt="'+ obj[i].nombreProducto +'"></figure><p class="food-name"><a href="#">'+ obj[i].cantidadComprar + ' x ' + obj[i].nombreProducto +'</a></p><p class="food-price">$'+ total +'</p></div></li>');
+                            }
+                            
+
+                            cantidad += parseInt(obj[i].cantidadComprar);
+                        }
+
+
+                        $("#totalCarro").html(cantidad);
+                        $("#totalCarroIcono").html(cantidad);
+                    });
+            }
+
+            function actualizarCarro()
+               {
+                    $.get( "/login/obtenerCarro.php" )
+                    .done(function(data) {
+
+                        console.log(data);
+
+                        var obj = jQuery.parseJSON(data);
+
+                        console.log("aqui");
+
+                        cantidad = 0;
+
+                        $("#detalleCarro").html("");
+                        for(i=0;i<obj.length;i++)
+                        {
+                            var total=parseInt(obj[i].cantidadComprar)*parseInt(obj[i].precioProducto);
+
+                            if(obj[i].imagen!="")
+                            {
+                                $("#detalleCarro").append('<li><div class="item-container clearfix"><figure><img src="' + obj[i].imagen + '" alt="'+ obj[i].nombreProducto +'"></figure><p class="food-name"><a href="#">'+ obj[i].cantidadComprar + ' x ' + obj[i].nombreProducto +'</a></p><p class="food-price">$'+ total +'</p></div></li>');
+                            }
+                            else
+                            {
+                                $("#detalleCarro").append('<li><div class="item-container clearfix"><figure><img src="img/gallery/gallery20.jpg" alt="'+ obj[i].nombreProducto +'"></figure><p class="food-name"><a href="#">'+ obj[i].cantidadComprar + ' x ' + obj[i].nombreProducto +'</a></p><p class="food-price">$'+ total +'</p></div></li>');
+                            }
+                            
 
                             cantidad += parseInt(obj[i].cantidadComprar);
                         }

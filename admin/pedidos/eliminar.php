@@ -15,6 +15,12 @@
 
 		$sql="DELETE FROM pedidos WHERE ID='".$ID."'";
 		$result = mysqli_query($con,$sql);
+
+		$sql="DELETE FROM detallepedidos WHERE IDpedido='".$ID."'";
+		$result = mysqli_query($con,$sql);
+
+		$sql="DELETE FROM pedidoarmapedido WHERE IDpedido='".$ID."'";
+		$result = mysqli_query($con,$sql);
 		
 		mysqli_close($con);
 		//redireccionar a productos

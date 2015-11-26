@@ -49,7 +49,9 @@
 
 		if($cantidadComprar>0)
 		{
-			$array = array('ID' => $ID, 'iIDproducto' => $IDproducto, 'nombreProducto' => $nombreProducto, 'cantidadComprar' => $cantidadComprar, 'precioProducto' => $precioProducto);
+			$primeraFoto= include $_SERVER['DOCUMENT_ROOT']."/login/productos/obtenerPrimeraImagen.php";
+
+			$array = array('ID' => $ID, 'iIDproducto' => $IDproducto, 'nombreProducto' => $nombreProducto, 'cantidadComprar' => $cantidadComprar, 'precioProducto' => $precioProducto, 'imagen' => $primeraFoto);
 			array_push($arr,$array);
 		}
 	}
@@ -73,7 +75,7 @@
 
         $nombreProducto = $base . ' + ' . $acompanamiento;
         
-        $array = array('ID' => $ID, 'iIDproducto' => "armaPedido", 'nombreProducto' => $nombreProducto , 'cantidadComprar' => $cantidad, 'precioProducto' => $precioArmaPedido);
+        $array = array('ID' => $ID, 'iIDproducto' => "armaPedido", 'nombreProducto' => $nombreProducto , 'cantidadComprar' => $cantidad, 'precioProducto' => $precioArmaPedido, 'imagen' => "");
 		array_push($arr,$array);
     }
 

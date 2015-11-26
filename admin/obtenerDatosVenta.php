@@ -49,6 +49,17 @@
 
 			$Total += ($filaObtenerDatosVenta["cantidad"] * $filaObtenerDatosVenta["precio"]);
 		}
+
+		$sqlObtenerDatosVenta="SELECT * FROM pedidoarmapedido WHERE IDpedido='$IDpedido'";
+
+		$resultObtenerDatosVenta = mysqli_query($conObtenerDatosVenta,$sqlObtenerDatosVenta);
+
+		for ($z = 0; $z <$resultObtenerDatosVenta->num_rows; $z++) {
+			$resultObtenerDatosVenta->data_seek($z);
+			$filaObtenerDatosVenta = $resultObtenerDatosVenta->fetch_assoc();
+
+			$Total += ($filaObtenerDatosVenta["cantidad"] * $filaObtenerDatosVenta["precio"]);
+		}
 		
 		mysqli_close($conObtenerDatosVenta);
 	}

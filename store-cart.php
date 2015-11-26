@@ -114,8 +114,6 @@
                                         $totalCompra+=($precioProducto * $cantidadComprar);     
                                     }
 
-                                    $conexion = include $_SERVER['DOCUMENT_ROOT']."/admin/crearConexion.php";
-
                                     $sql="SELECT * FROM comprasarmapedido WHERE IDusuario='$IDusuario'";
                         
                                     $resultado = mysqli_query($conexion,$sql);
@@ -169,7 +167,7 @@
                             </div>
                             <div class="col-md-12 align-right">
                                 <a href="/store.php" class="custom-button button-style3 large">Continuar Pedido</a>
-                                <a href="/realizarCompra.php" class="custom-button button-style3 large filled">Confirmar Pedido</a>
+                                <a href="/login/realizarCompra.php" class="custom-button button-style3 large filled">Confirmar Pedido</a>
                             </div>
                         </div><!-- /row -->
                     </div><!-- /estimate-shopping -->
