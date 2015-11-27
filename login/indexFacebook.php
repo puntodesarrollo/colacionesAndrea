@@ -1,15 +1,18 @@
 <?php
-	include 'configFacebook.php';
+	//include 'configFacebook.php';
+  ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+  require_once __DIR__ . '/facebook_sdk5/Facebook/autoload.php';
   session_start();
-  $con = new mysqli("localhost", "cco21607", "ndJ3bWpf", "cco21607_colaciones");
-  if ($con->connect_errno) {
-    echo "Falló la conexión con MySQL: (" . $con->connect_errno . ") " . $con->connect_error;
-  }
+  $fb = new Facebook\Facebook([
+      'app_id' => '985781244798546',
+      'app_secret' => '7da10da9bbbb64368751fe398080e42d',
+      'default_graph_version' => 'v2.5',      
+    ]); 
   
-  if (!$con->set_charset("utf8")) {
-    printf("Error cargando el conjunto de caracteres utf8: %s\n", $con->error);
-  } 
-
+  $helper = $fb->getRedirectLoginHelper();   
+  $accessToken = $helper->getAccessToken();
   if(isset($accessToken)){
     $_SESSION['facebook_access_token'] = (string) $accessToken;
     try {     
@@ -26,5 +29,6 @@
 
     include 'registrarFacebook.php';    
   }
+
 		
 ?>
