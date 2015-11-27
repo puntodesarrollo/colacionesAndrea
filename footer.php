@@ -184,7 +184,7 @@
                         $("#totalCarroIcono").html(cantidad);
 
                         $('html, body').animate({
-                            scrollTop: $("#totalCarroIcono").offset().top
+                            scrollTop: $("body").offset().top
                         }, 1000);
                     });
                }
