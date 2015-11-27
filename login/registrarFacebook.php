@@ -26,6 +26,7 @@
 			
 	}	
 	$_SESSION['ID']  = $retorno;
-	 header("location:/login");
+	header('Location: /login#');
+	 //header("location:/login/");
 	
 ?>
