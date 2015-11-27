@@ -3,6 +3,6 @@
 	unset($_SESSION["ID"]);
 	/*session deleted. if you try using this you've got an error*/
 	
-	header("location:/login");
+	header("location:/login.php");
 	exit;
 ?>

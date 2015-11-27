@@ -91,10 +91,12 @@
 
                                         if($cantidadComprar>0)
                                         {
+                                            $primeraFoto = include $_SERVER['DOCUMENT_ROOT']."/login/productos/obtenerPrimeraImagen.php";
+
                                             echo '<tr>
                                                     <td class="item-thumb">
                                                         <figure>
-                                                            <img src="img/gallery/gallery18.jpg" alt="Marine Food">
+                                                            <img src="' . $primeraFoto . '" alt="Marine Food">
                                                         </figure>
                                                     </td>
                                                     <td class="item-desc">'. $nombreProducto .'</td>
@@ -114,6 +116,7 @@
                                         $totalCompra+=($precioProducto * $cantidadComprar);     
                                     }
 
+                                    $conexion = include $_SERVER['DOCUMENT_ROOT']."/admin/crearConexion.php";
                                     $sql="SELECT * FROM comprasarmapedido WHERE IDusuario='$IDusuario'";
                         
                                     $resultado = mysqli_query($conexion,$sql);
@@ -161,11 +164,12 @@
                                 <div class="subtotals">
                                     <div class="subtotal total">
                                         <h6>Total:</h6>
-                                        <span><strong>$<?php echo $totalCompra;?></strong></span>
+                                        <span><strong>$<?php echo $totalCompra;?>*</strong></span>
                                     </div><!-- /subtotal -->
                                 </div><!-- /subtotal -->
                             </div>
                             <div class="col-md-12 align-right">
+                                * a pedidos fuera de la <a href="#map">zona de cobertura</a> se le agrega $1000 sobre el total
                                 <a href="/store.php" class="custom-button button-style3 large">Continuar Pedido</a>
                                 <a href="/login/realizarCompra.php" class="custom-button button-style3 large filled">Confirmar Pedido</a>
                             </div>

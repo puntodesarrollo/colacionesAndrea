@@ -7,6 +7,11 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Colaciones Andrea - Entrega de Comida a Domicilio</title>
+
+        <meta name="google-signin-scope" content="profile email">
+        <meta name="google-signin-client_id" content="1014154852560-1m65dufsnfoahaagpb9keavo8bufjlco.apps.googleusercontent.com">
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        
         <meta name="description" content="Food And Restaurant HTML Template">
         <meta name="viewport" content="width=device-width, initial-scale=1">        
         <meta name="theme-color" content="#23292c"> <!-- Android 5.0 Tab Color -->
@@ -18,24 +23,26 @@
 
         <!-- Icon Fonts -->
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="css/fontello.css">
+        <link rel="stylesheet" href="/css/fontello.css">
         
         <!-- Plugins CSS -->
-        <link rel="stylesheet" href="css/rev-slider-settings.css">
-        <link rel="stylesheet" href="css/animate.css">
-        <link rel="stylesheet" href="css/owl.carousel.css">
-        <link rel="stylesheet" href="css/magnific-popup.css">
+        <link rel="stylesheet" href="/css/rev-slider-settings.css">
+        <link rel="stylesheet" href="/css/animate.css">
+        <link rel="stylesheet" href="/css/owl.carousel.css">
+        <link rel="stylesheet" href="/css/magnific-popup.css">
 
         <!-- Template CSS -->
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/reset.css">
-        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/bootstrap-social.css">
+        <link rel="stylesheet" href="/css/reset.css">
+        <link rel="stylesheet" href="/css/main.css">
 
         <!-- Demo Purpose CSS -->
-        <link rel="stylesheet" href="css/custom-bg.css">
+        <link rel="stylesheet" href="/css/custom-bg.css">
+        <script src="/js/vendor/jquery-2.1.3.min.js"></script>
 
         <!-- Head JS Libraries -->
-        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+        <script src="/js/vendor/modernizr-2.6.2.min.js"></script>
         <script src="http://maps.google.com/maps/api/js"></script><!-- REQUIRED FOR GOOGLE MAP -->
     </head>
     <body>
@@ -62,16 +69,17 @@
             <div class="main-nav-inner">
                 <div class="logo-container">
                     <a href="#">
-                        <img src="img/logo/logo.png" alt="Marine Food Logo">
+                        <img src="/img/logo/logo.png" alt="Marine Food Logo">
                     </a>
                 </div><!-- /logo-container -->
                 <nav class="main-nav">
                     <ul>
                         <li class="active"><a href="index.php">Inicio</a></li>
-                        <li><a href="about.php">Quiénes Somos</a></li>
-                        <li><a href="blog.php">Blog</a></li>
-                        <li><a href="store.php">Colaciones</a></li>
-                        <li><a href="creaTuPlato.php">Arma tu Pedido</a></li>
+                        <li><a href="/about.php">Quiénes Somos</a></li>
+                        <li><a href="/blog.php">Blog</a></li>
+                        <li><a href="/store.php">Colaciones</a></li>
+                        <li><a href="/creaTuPlato.php">Arma tu Pedido</a></li>
+                        <li><a href="/login.php">Mi Cuenta</a></li>
                     </ul>
                 </nav>
                 <div class="tweets-container">

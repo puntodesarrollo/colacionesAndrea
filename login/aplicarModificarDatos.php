@@ -22,5 +22,5 @@
 	mysqli_close($con);	
 
 	//redireccionar a programas
-	header("location:/login");
+	header("location:/login.php");
 ?>
