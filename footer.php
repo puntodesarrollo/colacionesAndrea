@@ -1,4 +1,4 @@
-            <section class="map" >
+            <section class="map" id="map" >
                 <iframe src="https://mapsengine.google.com/map/u/0/embed?mid=ziDg0mefAhTM.kNDHElct8Kcc" width="100%" height="480"></iframe>
 
                 <div class="map-container wow fadeInDown hidden">
