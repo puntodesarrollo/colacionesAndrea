@@ -14,7 +14,7 @@
                         <div class="col-md-3 align-center">
                             <div class="logo-container wow fadeInLeft">
                                 <a href="#">
-                                    <img src="/img/logo/logo-light-blue.png" alt="Marine Food Logo">
+                                    <img src="/img/logo/logo.png" alt="Colaciones Andrea">
                                 </a>
                             </div><!-- /logo-container -->
                             <div class="socials-container">

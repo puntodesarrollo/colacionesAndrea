@@ -6,6 +6,10 @@
 		exit;
 	}
 
+	ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+
 	define ('SITE_ROOT', realpath(dirname(__FILE__)));
 	$path="/imagenes/";
 
@@ -23,9 +27,9 @@
 
 	if($_FILES["imagen"]["name"]!="")
 	{
-		$nombreArchivo =str_replace(" ","_",$_FILES['imagen']['name']);  		
-  		$file_tmp  = $_FILES['imagen']['tmp_name'];
-  		move_uploaded_file($file_tmp, SITE_ROOT. $path .$nombre.$nombreArchivo);
+		$nombreArchivo =str_replace(" ","_",$_FILES['imagen']['name']);
+  		move_uploaded_file($_FILES["imagen"]["tmp_name"], SITE_ROOT. $path .$nombre.$nombreArchivo);
+
 		$ruta="imagenes/" .$nombre.$nombreArchivo;
 		$resultado = $con->query("INSERT INTO noticias (titulo,bajadaTitulo, fecha, imagen, texto) VALUES('$nombre','$bajada',now(),'$ruta', '$texto')"); 
 
