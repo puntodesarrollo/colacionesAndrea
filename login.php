@@ -1,5 +1,5 @@
 ﻿<?php
-  include '/login/configFacebook.php'; 
+  include $_SERVER['DOCUMENT_ROOT'].'/login/configFacebook.php'; 
   include $_SERVER['DOCUMENT_ROOT']."/header.php";
 ?>
 

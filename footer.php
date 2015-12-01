@@ -34,13 +34,15 @@
                                 <div class="section-title">
                                     <h1><span>Contacto</span> </h1>
                                 </div>
-                                <form id="contact-form" method="post" action="php/contact.php">
-                                    <input type="text" id="name" name="name" placeholder="Nombre" required>
-                                    <input type="email" id="email" name="email" placeholder="Correo electrónico" required>
+                                <form id="contact-form" method="post" action="">
+                                    <input type="text" id="name" name="name" placeholder="Nombre" required>                                    
+                                    <input type="email" id="email" name="email" placeholder="Correo electrónico" required>                                    
                                     <textarea id="message" name="message" rows="6" placeholder="Mensaje" required></textarea>
-                                    <button type="submit">Emviar Mensaje</button>
+                                    <button type="submit" onclick="return enviarCorreo();">Enviar Mensaje</button>
+                                    
                                 </form>
-                                <div id="form-messages"></div>
+                                <br>                                
+                                <div id="form-message"></div>
                             </div><!-- /contact-form-container -->
                         </div><!-- /col-md-6 -->
                         <div class="col-md-3 wow fadeInRight">
@@ -108,7 +110,68 @@
                
                actualizarCarroInicio();
 
+
+
+
             });
+
+            function enviarCorreo(){
+
+                var name = $("#name").val();
+                var email =$("#email").val();
+                var message = $("#message").val();  
+                $("#form-message").attr("style","display: block !important; margin-top: 1em; text-align: center;");
+                $("#form-message").empty();    
+                if(name==""){
+
+                    $("#form-message").append("Debe ingresar su nombre");
+                    $("#name").focus();
+                   
+
+                }else if(email==""){
+
+                    $("#form-message").append("Debe ingresar su email");
+                    $("#email").focus();
+                }
+                else if (verificarEmail()==false){
+                    $("#form-message").append("Debe ingresar un mail con formato correcto");
+                    $("#email").focus();   
+                }
+                else if(message==""){
+                    $("#form-message").append("Debe ingresar un mensaje");
+                    $("#message").focus();    
+                }else{
+
+                    $.ajax({
+                        url: "contact_me.php", data: { "name": name, "email": email, "message":message },
+                        success: function (retorno) {  
+
+                             $("#form-message").append("Mensaje Enviado correctamente. Gracias por contactarnos!");
+                                $("#name").val('');
+                                $("#email").val('');
+                                $("#message").val(''); 
+                                $("#form-message").delay(5000).fadeOut('slow');
+
+                    
+                        }
+                    });
+                            
+                }    
+
+                
+               
+                return false;
+
+            }
+
+            function verificarEmail(){
+
+                if($("#email").val().indexOf('@', 0) == -1 || $("#email").val().indexOf('.', 0) == -1) {
+                    //alert('El correo electrónico introducido no es correcto.');
+                    return false;
+                }
+                return true;
+            }
 
             function actualizarCarroInicio()
             {

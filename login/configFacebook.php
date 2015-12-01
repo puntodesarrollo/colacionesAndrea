@@ -18,4 +18,5 @@
 
 	$loginUrl = $helper->getLoginUrl('http://colacionesandrea.cl/login/indexFacebook.php', $permissions);
 
+
 ?>
