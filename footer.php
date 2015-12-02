@@ -114,9 +114,7 @@
                     parallaxLevels:[100,-80]
                 });                
                
-               actualizarCarroInicio();              
-
-
+               actualizarCarroInicio();
             });
 
             function enviarCorreo(){

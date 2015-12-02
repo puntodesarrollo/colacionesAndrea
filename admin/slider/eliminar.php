@@ -1,6 +1,8 @@
 <?php
-	if($_COOKIE["agregado"]!="si"){
-		header("location:/login");
+	$sesion = include $_SERVER['DOCUMENT_ROOT']."/admin/verificarSesion.php";
+
+	if($sesion===false){
+		header("location:/admin/login");
 		exit;
 	}
 
@@ -14,14 +16,8 @@ if($_GET["t"]!=null){
 	
 	$nombre = $_GET["t"];
 	
-	$con = new mysqli("localhost", "arropaor", "b0x724xBxV", "arropaor_bd");
-	if (!$con) {
-	  die('No se pudo conectar a la base de datos: ' . mysqli_error($con));
-	}
-
-	if (!$con->set_charset("utf8")) {
-		printf("Error cargando el conjunto de caracteres utf8: %s\n", $mysqli->error);
-	}
+	//Se hace la conexion:
+	include $_SERVER['DOCUMENT_ROOT']."/admin/conexion.php";
 	
 	$sql="DELETE FROM slider WHERE imagen='".$nombre."'";
 	$result = mysqli_query($con,$sql);

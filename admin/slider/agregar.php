@@ -10,7 +10,8 @@
 
 	include $_SERVER['DOCUMENT_ROOT']."/admin/header.php";
 ?>
-	
+	<br>
+	<br>
 	<div class="page-header">
 		<h2 class="text-center">Agregar Imagen a Slider</h2>
 	</div>
@@ -24,7 +25,7 @@
 						<div class="col-sm-12">
 							<div id="divNombre" class="form-group">
 								<label for="nombre" class="control-label">Imagen</label>
-								<input type="file" class="form-control" name="imagen" id="imagen" 
+								<input type="file" class="form-control filestyle" data-input="false" data-buttonText="Seleccionar imagen..." name="imagen" id="imagen" 
 								maxlength="200" placeholder="archivo de imagen" required>
 								<span id="spanInput" class="glyphicon form-control-feedback"></span>
 								<div id="mensajeError" class="alert alert-danger hidden">
@@ -80,11 +81,6 @@
 				}
 				
 			});
-	});
-	
-	$(":file").filestyle({
-	buttonText: "Agregar imagen",
-	input:false
 	});
 
 </script>

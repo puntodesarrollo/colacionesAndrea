@@ -19,7 +19,9 @@
 	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
 	<link rel="stylesheet" href="/admin/Scripts/editor.css">
-	
+
+	<link rel="shortcut icon" href="/logo_icon.png">
+
 </head>
 <body style="background-color:#FAFAFA !important">	
 	<?php
