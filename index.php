@@ -1,309 +1,44 @@
 <?php
     include $_SERVER['DOCUMENT_ROOT']."/header.php";
+    include $_SERVER['DOCUMENT_ROOT']."/admin/conexion.php";
 ?>
-        
-            <!-- Start main-header -->
-            <header class="main-header slider-on" id="top">
+                    
+            <header class="main-header slider-on hidden-xs" id="top" style="height:370px" >
                 <div class="main-slider-container">
                     <div class="main-slider" >
                         <ul class="scrollme">
-                            <li data-transition="fade" data-slotamount="7" data-masterspeed="1500" >
-                                <img class="rs-parallaxlevel-1" src="img/slider-images/slider-bg1.jpg" alt="Marine Slider BG"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
-                                <div class="tp-caption customin customout rs-parallaxlevel-2"
-                                    data-x="center"
-                                    data-y="center"
-                                    data-voffset="-185"
-                                    data-customin="x:0;y:-100;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:1200;transformOrigin:50% 50%;"
-                                    data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-                                    data-start="1000"
-                                    data-speed="1500"
-                                    data-easing="Expo.easeOut"
-                                    data-elementdelay="0.5"
-                                    data-endspeed="600"
-                                    data-endeasing="Linear.easeNone">
-                                    <img src="img/slider-images/genuine.png" alt="Genuine" class="animateme"
-                                        data-when="exit"
-                                        data-from="0"
-                                        data-to="0.3"
-                                        data-opacity="0"
-                                        data-translatey="-80">
-                                </div>
-                                <div class="tp-caption customin customout rs-parallaxlevel-2"
-                                    data-x="center"
-                                    data-y="center"
-                                    data-voffset="-25"
-                                    data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.5;scaleY:0.5;skewX:0;skewY:0;opacity:0;transformPerspective:1200;transformOrigin:50% 50%;"
-                                    data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-                                    data-start="1500"
-                                    data-speed="1200"
-                                    data-easing="Expo.easeInOut"
-                                    data-endeasing="Linear.easeNone">
-                                    <img src="img/slider-images/food-passion.png" alt="Food Pasion" class="animateme"
-                                        data-when="exit"
-                                        data-from="0"
-                                        data-to="0.4"
-                                        data-opacity="0"
-                                        data-translatey="-70">
-                                </div>
-                                <div class="tp-caption customin customout rs-parallaxlevel-2"
-                                    data-x="center"
-                                    data-y="center"
-                                    data-voffset="95"
-                                    data-customin="x:0;y:80;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:1200;transformOrigin:50% 50%;"
-                                    data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-                                    data-start="2700"
-                                    data-speed="700"
-                                    data-easing="Expo.easeOut">
-                                    <img src="img/slider-images/cooking-since.png" alt="Cooking Since" class="animateme"
-                                        data-when="exit"
-                                        data-from="0"
-                                        data-to="0.5"
-                                        data-opacity="0"
-                                        data-translatey="60">
-                                </div>
-                                <div class="tp-caption customin customout rs-parallaxlevel-2"
-                                    data-x="center"
-                                    data-y="center"
-                                    data-voffset="95"
-                                    data-hoffset="-200"
-                                    data-customin="x:50;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:1200;transformOrigin:50% 50%;"
-                                    data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-                                    data-start="3200"
-                                    data-speed="1000"
-                                    data-easing="Elastic.easeOut">
-                                    <img src="img/slider-images/20.png" alt="Cooking Since" class="animateme"
-                                        data-when="exit"
-                                        data-from="0"
-                                        data-to="0.5"
-                                        data-opacity="0"
-                                        data-translatey="60">
-                                </div>
-                                <div class="tp-caption customin customout rs-parallaxlevel-2"
-                                    data-x="center"
-                                    data-y="center"
-                                    data-voffset="95"
-                                    data-hoffset="200"
-                                    data-customin="x:-50;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:1200;transformOrigin:50% 50%;"
-                                    data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-                                    data-start="3200"
-                                    data-speed="1000"
-                                    data-easing="Elastic.easeOut">
-                                    <img src="img/slider-images/01.png" alt="Cooking Since" class="animateme"
-                                        data-when="exit"
-                                        data-from="0"
-                                        data-to="0.5"
-                                        data-opacity="0"
-                                        data-translatey="60">
-                                </div>
-                                <div class="tp-caption customin customout rs-parallaxlevel-2"
-                                    data-x="center"
-                                    data-y="center"
-                                    data-voffset="250"
-                                    data-customin="x:0;y:40;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:1200;transformOrigin:50% 50%;"
-                                    data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:1;transformPerspective:600;transformOrigin:50% 50%;"
-                                    data-start="4000"
-                                    data-speed="800"
-                                    data-easing="Power2.easeInOut">
-                                </div>
-                            </li>
-                            <li data-transition="fade" data-slotamount="7" data-masterspeed="1000" >
-                                <img class="rs-parallaxlevel-1" src="img/slider-images/slider-bg2.jpg" alt="Marine Slider BG"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
-                                <div class="tp-caption customin customout rs-parallaxlevel-2"
-                                    data-x="center"
-                                    data-y="center"
-                                    data-voffset="-185"
-                                    data-customin="x:0;y:-100;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:1200;transformOrigin:50% 50%;"
-                                    data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-                                    data-start="1000"
-                                    data-speed="1500"
-                                    data-easing="Expo.easeOut"
-                                    data-elementdelay="0.5"
-                                    data-endspeed="600"
-                                    data-endeasing="Linear.easeNone">
-                                    <img src="img/slider-images/genuine.png" alt="Genuine" class="animateme"
-                                        data-when="exit"
-                                        data-from="0"
-                                        data-to="0.3"
-                                        data-opacity="0"
-                                        data-translatey="-80">
-                                </div>
-                                <div class="tp-caption customin customout rs-parallaxlevel-2"
-                                    data-x="center"
-                                    data-y="center"
-                                    data-voffset="-25"
-                                    data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.5;scaleY:0.5;skewX:0;skewY:0;opacity:0;transformPerspective:1200;transformOrigin:50% 50%;"
-                                    data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-                                    data-start="1500"
-                                    data-speed="1200"
-                                    data-easing="Expo.easeInOut"
-                                    data-endeasing="Linear.easeNone">
-                                    <img src="img/slider-images/food-passion.png" alt="Food Pasion" class="animateme"
-                                        data-when="exit"
-                                        data-from="0"
-                                        data-to="0.4"
-                                        data-opacity="0"
-                                        data-translatey="-70">
-                                </div>
-                                <div class="tp-caption customin customout rs-parallaxlevel-2"
-                                    data-x="center"
-                                    data-y="center"
-                                    data-voffset="95"
-                                    data-customin="x:0;y:80;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:1200;transformOrigin:50% 50%;"
-                                    data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-                                    data-start="2700"
-                                    data-speed="700"
-                                    data-easing="Expo.easeOut">
-                                    <img src="img/slider-images/cooking-since.png" alt="Cooking Since" class="animateme"
-                                        data-when="exit"
-                                        data-from="0"
-                                        data-to="0.5"
-                                        data-opacity="0"
-                                        data-translatey="60">
-                                </div>
-                                <div class="tp-caption customin customout rs-parallaxlevel-2"
-                                    data-x="center"
-                                    data-y="center"
-                                    data-voffset="95"
-                                    data-hoffset="-200"
-                                    data-customin="x:50;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:1200;transformOrigin:50% 50%;"
-                                    data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-                                    data-start="3200"
-                                    data-speed="1000"
-                                    data-easing="Elastic.easeOut">
-                                    <img src="img/slider-images/20.png" alt="Cooking Since" class="animateme"
-                                        data-when="exit"
-                                        data-from="0"
-                                        data-to="0.5"
-                                        data-opacity="0"
-                                        data-translatey="60">
-                                </div>
-                                <div class="tp-caption customin customout rs-parallaxlevel-2"
-                                    data-x="center"
-                                    data-y="center"
-                                    data-voffset="95"
-                                    data-hoffset="200"
-                                    data-customin="x:-50;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:1200;transformOrigin:50% 50%;"
-                                    data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-                                    data-start="3200"
-                                    data-speed="1000"
-                                    data-easing="Elastic.easeOut">
-                                    <img src="img/slider-images/01.png" alt="Cooking Since" class="animateme"
-                                        data-when="exit"
-                                        data-from="0"
-                                        data-to="0.5"
-                                        data-opacity="0"
-                                        data-translatey="60">
-                                </div>
-                                <div class="tp-caption customin customout rs-parallaxlevel-2"
-                                    data-x="center"
-                                    data-y="center"
-                                    data-voffset="250"
-                                    data-customin="x:0;y:40;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:1200;transformOrigin:50% 50%;"
-                                    data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:1;transformPerspective:600;transformOrigin:50% 50%;"
-                                    data-start="4000"
-                                    data-speed="800"
-                                    data-easing="Power2.easeInOut">
-                                </div>
-                            </li>
-                            <li data-transition="fade" data-slotamount="7" data-masterspeed="1000">
-                                <img class="rs-parallaxlevel-1" src="img/slider-images/slider-bg3.jpg" alt="Marine Slider BG"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
-                                <div class="tp-caption customin customout rs-parallaxlevel-2"
-                                    data-x="center"
-                                    data-y="center"
-                                    data-voffset="-185"
-                                    data-customin="x:0;y:-100;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:1200;transformOrigin:50% 50%;"
-                                    data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-                                    data-start="1000"
-                                    data-speed="1500"
-                                    data-easing="Expo.easeOut"
-                                    data-elementdelay="0.5"
-                                    data-endspeed="600"
-                                    data-endeasing="Linear.easeNone">
-                                    <img src="img/slider-images/genuine.png" alt="Genuine" class="animateme"
-                                        data-when="exit"
-                                        data-from="0"
-                                        data-to="0.3"
-                                        data-opacity="0"
-                                        data-translatey="-80">
-                                </div>
-                                <div class="tp-caption customin customout rs-parallaxlevel-2"
-                                    data-x="center"
-                                    data-y="center"
-                                    data-voffset="-25"
-                                    data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.5;scaleY:0.5;skewX:0;skewY:0;opacity:0;transformPerspective:1200;transformOrigin:50% 50%;"
-                                    data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-                                    data-start="1500"
-                                    data-speed="1200"
-                                    data-easing="Expo.easeInOut"
-                                    data-endeasing="Linear.easeNone">
-                                    <img src="img/slider-images/food-passion.png" alt="Food Pasion" class="animateme"
-                                        data-when="exit"
-                                        data-from="0"
-                                        data-to="0.4"
-                                        data-opacity="0"
-                                        data-translatey="-70">
-                                </div>
-                                <div class="tp-caption customin customout rs-parallaxlevel-2"
-                                    data-x="center"
-                                    data-y="center"
-                                    data-voffset="95"
-                                    data-customin="x:0;y:80;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:1200;transformOrigin:50% 50%;"
-                                    data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-                                    data-start="2700"
-                                    data-speed="700"
-                                    data-easing="Expo.easeOut">
-                                    <img src="img/slider-images/cooking-since.png" alt="Cooking Since" class="animateme"
-                                        data-when="exit"
-                                        data-from="0"
-                                        data-to="0.5"
-                                        data-opacity="0"
-                                        data-translatey="60">
-                                </div>
-                                <div class="tp-caption customin customout rs-parallaxlevel-2"
-                                    data-x="center"
-                                    data-y="center"
-                                    data-voffset="95"
-                                    data-hoffset="-200"
-                                    data-customin="x:50;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:1200;transformOrigin:50% 50%;"
-                                    data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-                                    data-start="3200"
-                                    data-speed="1000"
-                                    data-easing="Elastic.easeOut">
-                                    <img src="img/slider-images/20.png" alt="Cooking Since" class="animateme"
-                                        data-when="exit"
-                                        data-from="0"
-                                        data-to="0.5"
-                                        data-opacity="0"
-                                        data-translatey="60">
-                                </div>
-                                <div class="tp-caption customin customout rs-parallaxlevel-2"
-                                    data-x="center"
-                                    data-y="center"
-                                    data-voffset="95"
-                                    data-hoffset="200"
-                                    data-customin="x:-50;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:1200;transformOrigin:50% 50%;"
-                                    data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
-                                    data-start="3200"
-                                    data-speed="1000"
-                                    data-easing="Elastic.easeOut">
-                                    <img src="img/slider-images/01.png" alt="Cooking Since" class="animateme"
-                                        data-when="exit"
-                                        data-from="0"
-                                        data-to="0.5"
-                                        data-opacity="0"
-                                        data-translatey="60">
-                                </div>
-                                <div class="tp-caption customin customout rs-parallaxlevel-2"
-                                    data-x="center"
-                                    data-y="center"
-                                    data-voffset="250"
-                                    data-customin="x:0;y:40;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:1200;transformOrigin:50% 50%;"
-                                    data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:1;transformPerspective:600;transformOrigin:50% 50%;"
-                                    data-start="4000"
-                                    data-speed="800"
-                                    data-easing="Power2.easeInOut">
-                                </div>
-                            </li>
+                            <?php
+                                 $sqlFotosSlider="SELECT * FROM slider";      
+                
+                                $resultFotosSlider = mysqli_query($con,$sqlFotosSlider);
+                                $delay=0.2;
+                                for ($x = 0; $x <$resultFotosSlider->num_rows; $x++) {
+
+                                    $resultFotosSlider->data_seek($x);
+                                    $resultadoFotoSl = $resultFotosSlider->fetch_assoc();   
+                                    $ruta='admin/slider/'.$resultadoFotoSl["imagen"];                                   
+                                    ?>
+                                    <li data-transition="fade" data-slotamount="7" data-masterspeed="1500" >
+                                        <img class="rs-parallaxlevel-1" src="<?php echo $ruta; ?>" alt="Marine Slider BG"  data-bgfit="contain" data-bgposition="left top" data-bgrepeat="no-repeat">
+                              
+                                                                        
+                                
+                                        <div class="tp-caption customin customout rs-parallaxlevel-2"
+                                            data-x="center"
+                                            data-y="center"
+                                            data-voffset="250"
+                                            data-customin="x:0;y:40;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:1200;transformOrigin:50% 50%;"
+                                            data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:1;transformPerspective:600;transformOrigin:50% 50%;"
+                                            data-start="4000"
+                                            data-speed="800"
+                                            data-easing="Power2.easeInOut">
+                                        </div>
+                                    </li>                                        
+
+                                    <?php                                                                 
+                             
+                                }                          
+                            ?>                                                                                                                            
                         </ul>
                     </div><!-- /main-slider -->
                 </div><!-- /main-slider-container -->
@@ -584,7 +319,7 @@
                                             </header>
                                         </div><!-- /col-md-8 -->
                                         <?php
-                                        	include $_SERVER['DOCUMENT_ROOT']."/admin/conexion.php";
+                                        	
     	
     										$diaActual= date("w");
     										$sql="SELECT productos.id,productos.nombre,productos.descripcion,productos.precio,productos.cantidad FROM productos,dias_productos WHERE dias_productos.dia='$diaActual' AND productos.id=dias_productos.id_producto AND productos.mostrar=1";					
@@ -594,8 +329,7 @@
 
 											}else{
 												$cantidadProducto=round(($result->num_rows)/2);	
-											}
-											echo $cantidadProducto;
+											}											
 											echo '<div class="col-md-6">';
 											for ($i = 0; $i <$cantidadProducto; $i++) {
 												$result->data_seek($i);

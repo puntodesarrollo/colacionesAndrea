@@ -13,16 +13,21 @@
                 <?php
                     include $_SERVER['DOCUMENT_ROOT']."/carroCompra.php";
                 ?>    
-                <div class="top-banner-container top-banner-container-style2">
-                    <div class="top-banner-bg custom-bg5 parallax" data-stellar-background-ratio="0.5"></div>
+                <div class="top-banner-container">
+                    <div class="logo-container light-shark-bg align-center">
+                        <a href="#" class="logo">
+                            <img src="/img/logo/logo_small.png" alt="Marine Food Logo">
+                        </a>
+                    </div><!-- /logo-container -->                    
+                    <!--<div class="top-banner-bg custom-bg5 parallax" data-stellar-background-ratio="0.5"></div>
                     <div class="top-banner">
                         <div class="top-image">
                             <img src="img/slider-images/our-store.png" alt="Marine Food About">
-                        </div><!-- /top-image -->
+                        </div>>
                         <div class="bottom-image">
                             <img src="img/slider-images/cooking-since2001.png" alt="Marine Food About">
-                        </div><!-- /bottom-image -->
-                    </div><!-- /top-banner -->
+                        </div>
+                    </div> /top-banner -->
                     <div class="header-bottom-bar">
                         <div class="container">
                             <div class="row">

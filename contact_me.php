@@ -9,7 +9,7 @@ $tema = "desde la página colacionesandrea.cl";
 	
 // create email body and send it	
 //$to = 'gpuellestorres@gmail.com';
-$to = 'leohm63@gmail.com';
+$to = 'contacto@colacionesandrea.cl';
 $email_subject = $tema;
 $email_body = "Ha recibido un nuevo mensaje desde la página web colacionesandrea.cl\n\n".
 				  " Detalles:\n \nNombre: ".$name ."\n ".
