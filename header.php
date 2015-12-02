@@ -15,7 +15,7 @@
         <meta name="description" content="Food And Restaurant HTML Template">
         <meta name="viewport" content="width=device-width, initial-scale=1">        
         <meta name="theme-color" content="#23292c"> <!-- Android 5.0 Tab Color -->
-        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="shortcut icon" href="logo_icon.png">
 
         <!-- Web Fonts -->
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700,300,400' rel='stylesheet' type='text/css'>

@@ -43,10 +43,16 @@
 		}
 
 		//se sube la nueva imagen y se actualizan los datos
-		$nombreArchivo =str_replace(" ","_",$_FILES['imagen']['name']);  		
+		$nombreArchivo =str_replace(" ","_",$_FILES['imagen']['name']); 
+		$nombreArchivo =str_replace("/","_", $nombreArchivo);
+
+		$subida = $nombre.$nombreArchivo;
+		$subida =str_replace(" ","_", $subida);
+		$subida =str_replace("/","_", $subida);
+
   		$file_tmp  = $_FILES['imagen']['tmp_name'];
-  		move_uploaded_file($file_tmp, SITE_ROOT. $path .$nombre.$nombreArchivo);
-		$ruta="imagenes/" .$nombre.$nombreArchivo;
+  		move_uploaded_file($file_tmp, SITE_ROOT. $path .$subida);
+		$ruta="imagenes/" .$subida;
 		$resultado = $con->query("UPDATE noticias SET titulo='$nombre', bajadaTitulo='$bajada', texto='$texto', imagen='$ruta' WHERE ID='$ID'");
 
 	}

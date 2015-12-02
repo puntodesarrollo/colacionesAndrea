@@ -2,13 +2,13 @@
     include $_SERVER['DOCUMENT_ROOT']."/header.php";
 ?>
             <header class="main-header" id="top">
-                <div class="top-banner-container top-banner-container-style2">
+                <div class="top-banner-container top-banner-container-style2" style="height:400px">
                     <div class="top-banner-bg custom-bg4 parallax" data-stellar-background-ratio="0.5"></div>
                     <div class="top-banner">
                         <div class="top-image">
-                            <img src="/img/logo/logo.png" alt="Colaciones Andrea">
+                            <img src="/img/logo/logo_small.png" alt="Colaciones Andrea">
                         </div><!-- /top-image -->
-                        <div class="bottom-image">
+                        <div class="bottom-image hidden">
                             <img src="img/slider-images/cooking-since2001.png" alt="Marine Food About">
                         </div><!-- /bottom-image -->
                     </div><!-- /top-banner -->

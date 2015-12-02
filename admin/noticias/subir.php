@@ -27,10 +27,16 @@
 
 	if($_FILES["imagen"]["name"]!="")
 	{
-		$nombreArchivo =str_replace(" ","_",$_FILES['imagen']['name']);
-  		move_uploaded_file($_FILES["imagen"]["tmp_name"], SITE_ROOT. $path .$nombre.$nombreArchivo);
+		$nombreArchivo =str_replace(" ","_", $_FILES['imagen']['name']);
+		$nombreArchivo =str_replace("/","_", $nombreArchivo);
 
-		$ruta="imagenes/" .$nombre.$nombreArchivo;
+		$subida = $nombre.$nombreArchivo;
+		$subida =str_replace(" ","_", $subida);
+		$subida =str_replace("/","_", $subida);
+
+  		move_uploaded_file($_FILES["imagen"]["tmp_name"], SITE_ROOT. $path . $subida);
+
+		$ruta="imagenes/" .$subida;
 		$resultado = $con->query("INSERT INTO noticias (titulo,bajadaTitulo, fecha, imagen, texto) VALUES('$nombre','$bajada',now(),'$ruta', '$texto')"); 
 
 	}

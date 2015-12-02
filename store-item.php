@@ -46,7 +46,7 @@
                 ?> 
                 <div class="logo-container light-shark-bg align-center">
                     <a href="#" class="logo">
-                        <img src="img/logo/logo.png" alt="Marine Food Logo">
+                        <img src="/img/logo/logo_small.png" alt="Marine Food Logo">
                     </a>
                 </div><!-- /logo-container -->
                 <div class="header-bottom-bar">
