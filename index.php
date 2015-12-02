@@ -580,7 +580,7 @@
                                     <div class="row">
                                         <div class="col-md-8 col-md-offset-2">
                                             <header class="section-title">
-                                                <h1><span>Nuestros</span> Almuerzos de Hoy</h1>
+                                                <h1><span>Nuestros Almuerzos</span> de Hoy</h1>
                                             </header>
                                         </div><!-- /col-md-8 -->
                                         <?php
@@ -593,9 +593,9 @@
 												$cantidadProducto=$result->num_rows	;
 
 											}else{
-												$cantidadProducto=($result->num_rows)/2;	
+												$cantidadProducto=round(($result->num_rows)/2);	
 											}
-											
+											echo $cantidadProducto;
 											echo '<div class="col-md-6">';
 											for ($i = 0; $i <$cantidadProducto; $i++) {
 												$result->data_seek($i);

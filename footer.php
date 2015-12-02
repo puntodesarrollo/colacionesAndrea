@@ -1,6 +1,7 @@
-            <section class="map <?php  if(isset($mostrarMapa) && !$mostrarMapa) echo "hidden"; ?>" id="map" >
-                <iframe src="https://mapsengine.google.com/map/u/0/embed?mid=ziDg0mefAhTM.kNDHElct8Kcc" width="100%" height="480"></iframe>
-
+            <section class="map <?php  if(isset($mostrarMapa) && !$mostrarMapa) echo "hidden"; ?>" id="map">
+                
+                <iframe src="https://mapsengine.google.com/map/u/0/embed?mid=ziDg0mefAhTM.kNDHElct8Kcc" width="100%" height="480" style="pointer-events: none;"></iframe>
+                
                 <div class="map-container wow fadeInDown hidden">
                     <div id="google-map"></div>
                     <div id="cd-zoom-in"></div>
@@ -30,7 +31,7 @@
                             </div><!-- /socials-container -->
                         </div><!-- /col-md-3 -->
                         <div class="col-md-6 wow fadeInDown">
-                            <div class="contact-form-contaienr">
+                            <div class="contact-form-contaienr" style="margin-top: 0px !important;">
                                 <div class="section-title">
                                     <h1><span>Contacto</span> </h1>
                                 </div>
@@ -56,7 +57,9 @@
                                     </p>
                                     <img src="/img/template-assets/phone-icon.png" alt="Marine Food Address">
                                     <p>
-                                        <span>Telefono: (415) 124-5678</span>                                        
+                                        <span>Telefonos</span>
+                                        <span>+56 9 8439 4023</span>
+                                        <span>+56 9 4230 0407</span>                                        
                                     </p>
                                     <img src="/img/template-assets/mail-icon2.png" alt="Marine Food Address">
                                     <p>
@@ -92,7 +95,7 @@
         <script src="/js/tweetie.min.js"></script>
         <script src="/js/jquery.scrollme.min.js"></script>
         <script src="/js/plugins.js"></script>
-        <script src="/js/main.js"></script>
+        <script src="/js/main.js"></script>       
         <script type="text/javascript">
             jQuery(document).ready(function() {
                jQuery('.main-slider').revolution(
@@ -107,9 +110,7 @@
                     parallaxLevels:[100,-80]
                 });                
                
-               actualizarCarroInicio();
-
-
+               actualizarCarroInicio();              
 
 
             });
