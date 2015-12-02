@@ -1,4 +1,8 @@
 ﻿<?php
+
+  header("location:/login.php");
+    exit;
+
   include 'configFacebook.php'; 
   
 ?>
