@@ -82,22 +82,13 @@
                         <li><a href="/login.php">Mi Cuenta</a></li>
                     </ul>
                 </nav>
-                <div class="tweets-container">
-                    <div class="twitter-logo">
-                        <i class="fa fa-twitter"></i>
-                    </div><!-- /twitter-logo -->
-                    <div class="tweet"></div>
-                </div><!-- /tweets-container -->
                 <div class="socials-container">
                     <ul>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-skype"></i></a></li>
+                        <li><a href="https://www.facebook.com/COLACIONESADOMICILIOANDREA"><i class="fa fa-facebook"></i></a></li>
                     </ul>
                 </div><!-- /socials-container -->
                 <div class="copyright">
-                    <p>&copy; 2014 The Gourment</p>
-                    <p>All Rights Reserved</p>
+                    <p>&copy; 2015 <a target="_blank" href="http://puntodesarrollo.com">Punto Desarrollo</a></p>
                 </div><!-- /copyright -->
             </div><!-- /main-nav-inner -->
         </div><!-- /main-nav-container -->

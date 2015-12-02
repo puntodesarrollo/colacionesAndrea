@@ -12,25 +12,10 @@
             <footer class="main-footer dark-bg <?php  if(isset($mostrarMapa) && !$mostrarMapa) echo "hidden"; ?>">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-3 align-center">
-                            <div class="logo-container wow fadeInLeft">
-                                <a href="#">
-                                    <img src="/img/logo/logo.png" alt="Marine Food Logo" width="139px">
-                                </a>
-                            </div><!-- /logo-container -->
-                            <div class="socials-container">
-                                <ul>
-                                    <li class="wow fadeInLeft"><a href="https://www.facebook.com/COLACIONESADOMICILIOANDREA"><i class="fa fa-facebook"></i></a></li>
-                                    <!--
-                                    <li class="wow fadeInLeft" data-wow-delay="0.1s"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                    <li class="wow fadeInLeft" data-wow-delay="0.2s"><a href="#"><i class="fa fa-skype"></i></a></li>
-                                    <li class="wow fadeInLeft" data-wow-delay="0.3s"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                    <li class="wow fadeInLeft" data-wow-delay="0.4s"><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                    <li class="wow fadeInLeft" data-wow-delay="0.5s"><a href="#"><i class="fa fa-instagram"></i></a></li>-->
-                                </ul>
-                            </div><!-- /socials-container -->
+                        <!--<div class="col-md-3 align-center">
+
                         </div><!-- /col-md-3 -->
-                        <div class="col-md-6 wow fadeInDown">
+                        <div class="col-md-6 col-md-offset-1 wow fadeInDown">
                             <div class="contact-form-contaienr" style="margin-top: 0px !important;">
                                 <div class="section-title">
                                     <h1><span>Contacto</span> </h1>
@@ -46,8 +31,8 @@
                                 <div id="form-message"></div>
                             </div><!-- /contact-form-container -->
                         </div><!-- /col-md-6 -->
-                        <div class="col-md-3 wow fadeInRight">
-                            <div class="address-container">
+                        <div class="col-md-4 col-md-offset-1 wow fadeInRight">
+                             <div class="address-container">
                                 <address>
                                     <img src="/img/template-assets/map-pin.png" alt="Marine Food Address">
                                     <p>
@@ -67,9 +52,28 @@
                                     </p>
                                 </address>
                             </div><!-- /address-container -->
+                            <!--<div class="socials-container text-center">
+                                <ul>
+                                    <li class="wow fadeInLeft"><a href="https://www.facebook.com/COLACIONESADOMICILIOANDREA"><i class="fa fa-facebook"></i></a></li>
+                                    <!--
+                                    <li class="wow fadeInLeft" data-wow-delay="0.1s"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li class="wow fadeInLeft" data-wow-delay="0.2s"><a href="#"><i class="fa fa-skype"></i></a></li>
+                                    <li class="wow fadeInLeft" data-wow-delay="0.3s"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                    <li class="wow fadeInLeft" data-wow-delay="0.4s"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                    <li class="wow fadeInLeft" data-wow-delay="0.5s"><a href="#"><i class="fa fa-instagram"></i></a></li>-->
+                                <!--</ul>
+                            </div><!-- /socials-container -->
+                            <br class="hidden-xs">
+                            <br class="hidden-xs">
+                            <div class="logo-container wow fadeInLeft">
+                                <a href="#">
+                                    <img src="/img/logo/logo.png" alt="Marine Food Logo" class="img-rounded hidden-xs" width="60%" style="display: block; margin-left: auto; margin-right: auto;">
+                                    <img src="/img/logo/logo.png" alt="Marine Food Logo" class="img-rounded visible-xs" width="139px" style="display: block; margin-left: auto; margin-right: auto;">
+                                </a>
+                            </div><!-- /logo-container -->
                         </div><!-- /col-md-3 -->
                         <div class="copyright col-md-12 wow fadeInUp" data-wow-delay="0.7s">
-                            <p><?php echo date ("Y");?>-&copy;PuntoDesarrollo Ltda.</p>
+                            <p>&copy; 2015 <a target="_blank" href="http://puntodesarrollo.com" style="color:white !important">Punto Desarrollo</a></p>
                             <!--<p> 2015 The Gourmet. All Rights Reserved</p>-->
                         </div><!-- /copyright -->
                     </div><!-- /row -->

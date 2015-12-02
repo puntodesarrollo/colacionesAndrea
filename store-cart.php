@@ -4,7 +4,7 @@
 
     if($login===false)
     {
-        header("location:/login/");
+        header("location:/login.php");
     }
 
     //Se eliminan las compras antiguas:
@@ -24,7 +24,7 @@
 
                 <div class="logo-container light-shark-bg align-center">
                     <a href="#" class="logo">
-                        <img src="img/logo/logo.png" alt="Marine Food Logo">
+                        <img src="img/logo/logo_small.png" alt="Marine Food Logo">
                     </a>
                 </div><!-- /logo-container -->
                 <div class="header-bottom-bar">
@@ -168,15 +168,37 @@
                                     </div><!-- /subtotal -->
                                 </div><!-- /subtotal -->
                             </div>
+                            <div class="col-md-4 col-md-offset-8">
+                                <p>* a pedidos fuera de la <a href="#" id="botonZonaCobertura">zona de cobertura</a> se le agrega $1000 sobre el total</p>                                
+                                <br class="hidden-xs">
+                                <br class="hidden-xs">
+                            </div>
                             <div class="col-md-12 align-right">
-                                * a pedidos fuera de la <a href="#map">zona de cobertura</a> se le agrega $1000 sobre el total
                                 <a href="/store.php" class="custom-button button-style3 large">Continuar Pedido</a>
-                                <a href="/login/realizarCompra.php" class="custom-button button-style3 large filled">Confirmar Pedido</a>
+                                <?php 
+                                    if($totalCompra>0)
+                                    {
+                                        echo '<a href="/login/realizarCompra.php" class="custom-button button-style3 large filled">Confirmar Pedido</a>';
+                                    }
+                                ?>
+                                
                             </div>
                         </div><!-- /row -->
                     </div><!-- /estimate-shopping -->
                 </div><!-- /container -->
             </section>
+
+            <script type="text/javascript">
+            jQuery(document).ready(function() {
+               
+                $("#botonZonaCobertura").click(function(){
+                    console.log("hacia zona cobertura");
+                    $('html, body').animate({
+                            scrollTop: $("#map").offset().top
+                        }, 1000);
+                });
+            });
+        </script>
         
 <?php
     include $_SERVER['DOCUMENT_ROOT']."/footer.php";

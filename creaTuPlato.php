@@ -23,7 +23,7 @@
                 ?> 
                 <div class="logo-container light-shark-bg align-center">
                     <a href="#" class="logo">
-                        <img src="img/logo/logo.png" alt="Marine Food Logo">
+                        <img src="img/logo/logo_small.png" alt="Marine Food Logo">
                     </a>
                 </div><!-- /logo-container -->
                 <div class="header-bottom-bar">
@@ -44,8 +44,9 @@
                                 <br><br><br>
                             	<div class="col-md-8">
                             		<div class="col-md-12">
-                                		<label class="col-md-12"><b>Base</b></label>
+                                		<label class="col-md-12"><strong>Base:</strong></label>
                                 		<br>
+                                        <br class="hidden-xs">
                                 		<select class="form-control" name="base" id="base">
                                 		<?php
                                 			for ($i = 0; $i <$resultBase->num_rows; $i++) {         
@@ -58,10 +59,11 @@
                                 		?>
                                    		</select>                                                                    
                                 	</div>
-                                	<br><br><br><br>
                                 	<div class="col-md-12">
-                                  		<label class="col-md-12"><b>Acompañamiento</b></label>
+                                        <br class="hidden-xs">
+                                  		<label class="col-md-12"><strong>Acompañamiento:</strong></label>
                                   		<br>
+                                        <br class="hidden-xs">
                                    		<select class="form-control" name="acompanamiento" id="acompanamiento">
                                    		<?php 
                                    			for ($i = 0; $i <$resultAcompanamiento->num_rows; $i++) {         
