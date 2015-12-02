@@ -310,7 +310,7 @@
             </header>
             <!-- End main-header -->
                 
-            <section class="team" id="about">
+            <section class="team" id="about" hidden>
                 <div class="row">
                     <div class="col-md-6 wow fadeInLeft">
                         <div class="col-md-8 pull-right">
@@ -367,7 +367,7 @@
                 </div><!-- /row -->
             </section><!-- /team -->
 
-            <section class="gallery dark-bg" id="gallery">
+            <section class="gallery dark-bg" id="gallery" hidden>
                 <div class="container">
                     <div class="row">
                         <div class="col-md-8 col-md-offset-2 wow fadeInDown">
@@ -525,7 +525,7 @@
                 </div><!-- /gallery-items-container -->
             </section><!-- /gallery -->
 
-            <section class="services" id="services">
+            <section class="services" id="services" hidden>
                 <div class="container">
                     <div class="row">
                         <div class="col-md-8 col-md-offset-2 wow fadeInDown">
@@ -580,7 +580,7 @@
                                     <div class="row">
                                         <div class="col-md-8 col-md-offset-2">
                                             <header class="section-title">
-                                                <h1><span>Nuestros</span> Almuerzos</h1>
+                                                <h1><span>Nuestros</span> Almuerzos de Hoy</h1>
                                             </header>
                                         </div><!-- /col-md-8 -->
                                         <?php

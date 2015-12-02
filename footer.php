@@ -14,7 +14,7 @@
                         <div class="col-md-3 align-center">
                             <div class="logo-container wow fadeInLeft">
                                 <a href="#">
-                                    <img src="/img/logo/logo.png" alt="Colaciones Andrea">
+                                    <img src="/img/logo/logo.png" alt="Marine Food Logo" width="139px">
                                 </a>
                             </div><!-- /logo-container -->
                             <div class="socials-container">
@@ -50,25 +50,24 @@
                                 <address>
                                     <img src="/img/template-assets/map-pin.png" alt="Marine Food Address">
                                     <p>
-                                        <span>The Gourmet.</span>
-                                        <span>PO Box 21177</span>
-                                        <span>Little Lonsdale St, Melbourne</span>
-                                        <span>Victoria 8011 Australia</span>
+                                        <span>Colaciones Andrea</span>
+                                        <span>La Serena</span>                                        
+                                        <span>Coquimbo</span>
                                     </p>
                                     <img src="/img/template-assets/phone-icon.png" alt="Marine Food Address">
                                     <p>
-                                        <span>Phone: (415) 124-5678</span>
-                                        <span>Fax: (415) 124-5678</span>
+                                        <span>Telefono: (415) 124-5678</span>                                        
                                     </p>
                                     <img src="/img/template-assets/mail-icon2.png" alt="Marine Food Address">
                                     <p>
-                                        <span>support@yourname.com</span>
+                                        <span>contacto@colacionesandrea.cl</span>
                                     </p>
                                 </address>
                             </div><!-- /address-container -->
                         </div><!-- /col-md-3 -->
                         <div class="copyright col-md-12 wow fadeInUp" data-wow-delay="0.7s">
-                            <p>&copy; 2015 The Gourmet. All Rights Reserved</p>
+                            <p><?php echo date ("Y");?>-&copy;PuntoDesarrollo Ltda.</p>
+                            <!--<p> 2015 The Gourmet. All Rights Reserved</p>-->
                         </div><!-- /copyright -->
                     </div><!-- /row -->
                 </div><!-- /container -->
