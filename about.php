@@ -31,16 +31,16 @@
                             <div class="row">
                                 <div class="col-md-6 wow fadeInLeft">
                                     <p>
-                                        <span class="dropcap">Q</span>
-                                        uisque volutpat pharetra felis, eu cursus lorem molestie vitae ulla vehicula, lacus ut suscipit fermentum, turpis felis ultricies dui ut libero augue at libero. Morbi ut arcu dolor. Maecenas id nulla nec nibh viverra vehicula. Cras feugiat, magna eu lacinia ullamcorper. lla vehicula, lacus ut suscipit fermentum, turpis felis ultricies dui, ut rhoncus libero augue at libero. Morbi ut arcu dolor. 
-                                        Maecenas id nulla nec nibh viverra vehicula. Cras feugiat, magna eu lacinia ullamcorper, augue est sodales nibh, ut vulputate augue est sed nunc. Suspendisse sagittist.
+                                        <span class="dropcap">C</span>
+                                        olaciones a Domicilio Andrea”  es una empresa familiar que empezó por la falta de trabajo de la  dueña de la empresa. Su experiencia como manipuladora de alimentos y sus ganas de salir adelante hicieron que comenzara a vender comida a domicilio.
+                                        Gracias a los proyectos de Sercotec Capital Abeja empezó a surgir como micro empresaria teniendo asíl la opción de comprar diversos materiales y ampliar su cocina.
                                     </p>
                                 </div><!-- /col-md-6 -->
                                 <div class="col-md-6 wow fadeInRight">
                                     <p>
-                                        <span class="dropcap">W</span>
-                                        uisque volutpat pharetra felis, eu cursus lorem molestie vitae ulla vehicula, lacus ut suscipit fermentum, turpis felis ultricies dui ut libero augue at libero. Morbi ut arcu dolor. Maecenas id nulla nec nibh viverra vehicula. Cras feugiat, magna eu lacinia ullamcorper. lla vehicula, lacus ut suscipit fermentum, turpis felis ultricies dui, ut rhoncus libero augue at libero. Morbi ut arcu dolor. 
-                                        Maecenas id nulla nec nibh viverra vehicula. Cras feugiat, magna eu lacinia ullamcorper, augue est sodales nibh, ut vulputate augue est sed nunc. Suspendisse sagittist.
+                                        <span class="dropcap">D</span>
+                                        esde el comienzo ofreciendo productos de alta calidad y con un toque casero, sus colaciones buscar llegar a ser las primeras de la región, y otorgar ese gustito de comer como en casa, brindando a los usuarios un entorno amable y de confianza para que su alimentación sea grata y acogedora.
+                                        Atendido por su propia dueña, asegura que todo llegue bien y a tiempo para que sus clientes degusten la cocina chilena y casera.
                                     </p>
                                 </div><!-- /col-md-6 -->
                             </div><!-- /row -->
