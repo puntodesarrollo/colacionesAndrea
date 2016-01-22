@@ -27,7 +27,7 @@
                         <img src="img/logo/logo_small.png" alt="Marine Food Logo">
                     </a>
                 </div><!-- /logo-container -->
-                <div class="header-bottom-bar">
+                <div class="header-bottom-bar hidden">
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
