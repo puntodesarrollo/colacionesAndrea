@@ -337,7 +337,7 @@
 												echo '<div class="food">';
                                                 	echo '<h6 class="food-name">'.$fila["nombre"].'</h6>';
                                                 	echo '<div class="food-desc">';
-                                                    	echo '<div class="food-details">';
+                                                    	echo '<div>';
                                                         	echo '<span>'.$fila["descripcion"].'</span>';
                                                     	echo '</div>';
                                                     	echo '<div class="dots"></div>';

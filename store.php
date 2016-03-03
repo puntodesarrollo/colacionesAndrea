@@ -112,7 +112,7 @@
                 </div><!-- /container -->
             </section>
 
-            <section class="clients white-rock-bg">
+            <section class="clients white-rock-bg hidden">
                 <div class="container">
                     <div class="clients-carousel grayscale-image row">
                      <?php
